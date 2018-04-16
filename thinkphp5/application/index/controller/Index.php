@@ -7,4 +7,7 @@ class Index
     {
     	return 123;
     }
+    public function show(){
+        echo 22;
+    }
 }
