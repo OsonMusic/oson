@@ -5,6 +5,6 @@ class Index
 {
     public function index()
     {
-    	echo "admin";
+     return view("/index");
     }
 }
