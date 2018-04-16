@@ -5,6 +5,6 @@ class Index
 {
     public function index()
     {
-     return view("index/index");
+            return view("/index");
     }
 }
