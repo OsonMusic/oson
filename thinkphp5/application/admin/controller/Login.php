@@ -13,6 +13,7 @@ class Login  extends \think\Controller
         $pwd = input('post.pwd');
         $user = new User();
         $res = $user->getLogin($name);
+        print_r($res);
 
 
 
