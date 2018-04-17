@@ -41,9 +41,13 @@
 				url:"{:url('Login/loginDo')}",
                 type:"post",
 				data:{name:name,pwd:pwd},
-				// dataType:"json",
+				dataType:"json",
 				success:function (e) {
-                    alert(e)
+                 		if(e.e==4){
+                 		    	location.href="{:url('Index/index')}"
+						}else{
+							$("#info").html("<font size='3' color='red'>"+e.m+"<font>");
+						}
                 }
 
         })

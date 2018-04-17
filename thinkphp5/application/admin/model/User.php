@@ -8,4 +8,5 @@ class User extends Model{
         $res =   Db::table($this->tableName)->where('user_name',$str)->find();
         return $res;
     }
+
 }
