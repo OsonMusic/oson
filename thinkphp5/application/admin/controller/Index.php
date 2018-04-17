@@ -7,6 +7,6 @@ class Index  extends \think\Controller
         return $this->fetch("index");
     }
     public function main(){
-    	return $this->fetch("main");
+    	 $this->fetch("main");
     }
 }
