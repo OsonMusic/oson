@@ -26,34 +26,38 @@
       <file leaf-file-name="Login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thinkphp5/application/admin/controller/Login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state relative-caret-position="837">
+              <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
               <folding>
                 <element signature="e#38#63#0#PHP" expanded="true" />
-                <marker date="1523951071058" expanded="true" signature="824:888" ph="update set " />
-                <marker date="1523951071058" expanded="true" signature="824:895" ph="update oson_user... " />
-                <marker date="1523951071058" expanded="true" signature="824:897" ph="update oson_user... " />
-                <marker date="1523951071058" expanded="true" signature="1019:1080" ph="update oson_user... " />
+                <marker date="1523952128942" expanded="true" signature="824:888" ph="update set " />
+                <marker date="1523952128942" expanded="true" signature="824:895" ph="update oson_user... " />
+                <marker date="1523952128942" expanded="true" signature="824:897" ph="update oson_user... " />
+                <marker date="1523952128942" expanded="true" signature="1019:1080" ph="update oson_user... " />
+                <marker date="1523952128942" expanded="true" signature="1111:1263" ph="SELECT * FRO... oson_power" />
+                <marker date="1523952128942" expanded="true" signature="1155:1262" ph="SELECT power... oson_r_p" />
+                <marker date="1523952128942" expanded="true" signature="1202:1259" ph="SELECT role_... oson_u_r" />
+                <marker date="1523952128942" expanded="true" signature="1202:1260" ph="SELECT role_... oson_u_r" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/thinkphp5/thinkphp/library/think/Controller.php">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/thinkphp5/application/admin/view/Index/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="211" column="5" lean-forward="false" selection-start-line="211" selection-start-column="5" selection-end-line="211" selection-end-column="5" />
+            <state relative-caret-position="224">
+              <caret line="7" column="39" lean-forward="false" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/thinkphp5/application/admin/view/login/login.html">
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/thinkphp5/application/admin/view/Index/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="43" column="32" lean-forward="true" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
+            <state relative-caret-position="-5984">
+              <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -73,8 +77,10 @@
         <option value="$PROJECT_DIR$/thinkphp5/application/admin/model/user.php" />
         <option value="$PROJECT_DIR$/thinkphp5/application/admin/model/User.php" />
         <option value="$PROJECT_DIR$/thinkphp5/application/admin/view/login/login.html" />
-        <option value="$PROJECT_DIR$/thinkphp5/application/admin/controller/Login.php" />
         <option value="$PROJECT_DIR$/thinkphp5/thinkphp/library/think/Controller.php" />
+        <option value="$PROJECT_DIR$/thinkphp5/application/admin/controller/Login.php" />
+        <option value="$PROJECT_DIR$/thinkphp5/application/admin/view/Index/index.html" />
+        <option value="$PROJECT_DIR$/thinkphp5/application/admin/view/Index/main.html" />
       </list>
     </option>
   </component>
@@ -85,7 +91,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="515" />
     <option name="width" value="640" />
     <option name="height" value="515" />
@@ -235,15 +241,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1523926314076</updated>
-      <workItem from="1523926318386" duration="10699000" />
+      <workItem from="1523926318386" duration="11703000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10699000" />
+    <option name="totallyTimeSpent" value="11703000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22371244" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -327,6 +333,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/thinkphp5/application/admin/view/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="44" column="38" lean-forward="true" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/thinkphp5/application/admin/model/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -339,30 +353,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/thinkphp5/thinkphp/library/think/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="211" column="5" lean-forward="false" selection-start-line="211" selection-start-column="5" selection-end-line="211" selection-end-column="5" />
+        <state relative-caret-position="479">
+          <caret line="189" column="17" lean-forward="true" selection-start-line="189" selection-start-column="17" selection-end-line="189" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/thinkphp5/application/admin/controller/Login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state relative-caret-position="837">
+          <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
           <folding>
             <element signature="e#38#63#0#PHP" expanded="true" />
-            <marker date="1523951071058" expanded="true" signature="824:888" ph="update set " />
-            <marker date="1523951071058" expanded="true" signature="824:895" ph="update oson_user... " />
-            <marker date="1523951071058" expanded="true" signature="824:897" ph="update oson_user... " />
-            <marker date="1523951071058" expanded="true" signature="1019:1080" ph="update oson_user... " />
+            <marker date="1523952128942" expanded="true" signature="824:888" ph="update set " />
+            <marker date="1523952128942" expanded="true" signature="824:895" ph="update oson_user... " />
+            <marker date="1523952128942" expanded="true" signature="824:897" ph="update oson_user... " />
+            <marker date="1523952128942" expanded="true" signature="1019:1080" ph="update oson_user... " />
+            <marker date="1523952128942" expanded="true" signature="1111:1263" ph="SELECT * FRO... oson_power" />
+            <marker date="1523952128942" expanded="true" signature="1155:1262" ph="SELECT power... oson_r_p" />
+            <marker date="1523952128942" expanded="true" signature="1202:1259" ph="SELECT role_... oson_u_r" />
+            <marker date="1523952128942" expanded="true" signature="1202:1260" ph="SELECT role_... oson_u_r" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/thinkphp5/application/admin/view/login/login.html">
+    <entry file="file://$PROJECT_DIR$/thinkphp5/application/admin/view/Index/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="43" column="32" lean-forward="true" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
+        <state relative-caret-position="224">
+          <caret line="7" column="39" lean-forward="false" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkphp5/application/admin/view/Index/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5984">
+          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
           <folding />
         </state>
       </provider>
