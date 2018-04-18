@@ -5,11 +5,10 @@ class Log  extends Controller
 {
     public function index()
     {
-        echo 111;die();
+        //echo 111;die();
+
         return $this->fetch("log");
 
     }
-    public function logmain(){
-    	return $this->fetch("logmain");
-    }
+
 }
