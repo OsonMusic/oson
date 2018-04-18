@@ -19,7 +19,7 @@ use think\Db;
 //        print_r($user);die;
         $res  =    $user->getLogin($name);
         //错误次数大于等于3提醒
-        if($res['error_num']>=3){
+        if($res['error_num']>=3||$res['user_status']==1){
             exit(json_encode(array("e"=>2,"m"=>'此账户已经被冻结,请联系管理员')));
         }
         //账户错误

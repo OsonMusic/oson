@@ -8,14 +8,24 @@ class UserModel extends    Model{
     /*
      * 验证是否是超级管理
      * */
-    public function isAdmin(){
+//    public function isAdmin($userid){
+//
+//    }
 
-    }
     /*
-     * 添加管理
+     * 展示所有用户
      * */
-    public function addUser($arr=array()){
-
+    public function getUser(){
+        $res = Db::table($this->tableName)->where("is_boss",0)->select();
+        return $res;
+    }
+    public function addUser($arr){
+       $res =   Db::table($this->tableName)->insert($arr);
+       return $res;
+    }
+    public function delUser($userId){
+        $res =   Db::table($this->tableName)->where('user_id',$userId)->delete();
+        return $res;
     }
 
 }
