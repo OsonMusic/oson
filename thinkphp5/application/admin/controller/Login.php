@@ -11,13 +11,17 @@ use think\Db;
         return     $this->fetch("Login/login");
     }
     public function loginDO(){
+//        print_r(input("post."));die;
         //接值过滤
         $name =    $this->xss(input('post.name'));
+
         $pwd  =    $this->xss(input('post.pwd'));
         //实例化model
         $user =    new LoginModel();
 //        print_r($user);die;
         $res  =    $user->getLogin($name);
+//        print_r($res);die;
+
         //错误次数大于等于3提醒
         if($res['error_num']>=3||$res['user_status']==1){
             exit(json_encode(array("e"=>2,"m"=>'此账户已经被冻结,请联系管理员')));

@@ -46,6 +46,9 @@ class User  extends  \think\Controller{
             $this->error("添加失败","User/showUser",'','1');
         }
     }
+    /*
+     * ajax删除用户
+     * */
     public function delUser(){
         $userId =  $this->xss(input("post.userId"));
         $res    =  $this->Model->delUser($userId);
@@ -55,5 +58,38 @@ class User  extends  \think\Controller{
             exit(json_encode(array("e"=>2,"m"=>'删除失败')));
         }
     }
+    /*
+     * ajax冻结用户
+     * */
+    public function statuUser(){
+        $id=  $this->xss(input("post.id"));
+        $where=  $this->xss(input("post.where"));
+        if($where==1){
+            $where=0;
+        }else{
+            $where=1;
+        }
+        $res    =  $this->Model->statuUser($where,$id);
+        if($res){
+            exit(json_encode(array("e"=>1,"m"=>'修改成功')));
+        }else{
+            exit(json_encode(array("e"=>2,"m"=>'修改失败')));
+        }
 
+    }
+    public function errorUser(){
+        $id=  $this->xss(input("post.id"));
+        $where=  $this->xss(input("post.where"));
+        if($where==0){
+            $where=3;
+        }else{
+            $where=0;
+        }
+        $res    =  $this->Model->errorUser($where,$id);
+        if($res){
+            exit(json_encode(array("e"=>1,"m"=>'修改成功')));
+        }else{
+            exit(json_encode(array("e"=>2,"m"=>'修改失败')));
+        }
+    }
 }

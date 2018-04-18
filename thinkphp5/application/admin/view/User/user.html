@@ -36,6 +36,7 @@
 							<td width="435px" class="tdColor">用户名称</td>
 							<td width="400px" class="tdColor">用户密码</td>
 							<td width="220px" class="tdColor">当前状态</td>
+							<td width="220px" class="tdColor">错误冻结</td>
 							<td width="250px" class="tdColor">用户等级</td>
 							<td>操作</td>
 						</tr>
@@ -50,6 +51,14 @@
 								{else/}
 									<font color="red"   where="{$v.user_status}"  only="{$v.user_id}" class="status" style="cursor: pointer;">冻结</font>
 								{/if}
+							</td>
+							<td>
+								{if condition="$v.error_num egt 3"}
+								<font color="red" where="{$v.error_num}"  only="{$v.user_id}" class="error" style="cursor: pointer;">冻结</font>
+								{else/}
+								<font color="green"   where="{$v.error_num}"  only="{$v.user_id}" class="error" style="cursor: pointer;">正常</font>
+								{/if}
+
 							</td>
 							<td>
 								普通管理
@@ -103,20 +112,54 @@
 	$(document).on("click",".status",function () {
 		var where =   $(this).attr("where");
 		var id    =   $(this).attr("only");
+		var _this =   $(this);
         $.ajax({
             type:"POST",
             url:"{:url('User/statuUser')}",
             data:{where:where,id:id},
-            // dataType:"json",
+            dataType:"json",
             success:function (e) {
-				alert(e)
+				if(e.e==1){
+                    if(where==1){
+                        _this.html("正常")
+                        _this.attr("where","0");
+                        _this.attr("color","green");
+					}else{
+                        _this.html("冻结")
+                        _this.attr("where","1");
+                        _this.attr("color","red");
+					}
+				}else{
+				   alert(e.m)
+				}
             }
         })
-
-
-
-
-
+    })
+    $(document).on("click",".error",function () {
+        var where =   $(this).attr("where");
+        var id    =   $(this).attr("only");
+        var _this =   $(this);
+        $.ajax({
+            type:"POST",
+            url:"{:url('User/errorUser')}",
+            data:{where:where,id:id},
+            dataType:"json",
+            success:function (e) {
+                if(e.e==1){
+                    if(where==3){
+                        _this.html("正常")
+                        _this.attr("where","0");
+                        _this.attr("color","green");
+                    }else{
+                        _this.html("冻结")
+                        _this.attr("where","3");
+                        _this.attr("color","red");
+                    }
+                }else{
+                    alert(e.m)
+                }
+            }
+        })
     })
 </script>
 </html>
