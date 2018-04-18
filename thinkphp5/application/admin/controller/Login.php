@@ -1,21 +1,22 @@
 <?php
 namespace app\admin\controller;
-use app\admin\model\User;
+use app\admin\model\LoginModel;
 use think\Session;
 use think\Db;
-class Login  extends \think\Controller
+    class Login  extends \think\Controller
 {
         //加载此页面！
     public function index(){
         //渲染模板
-        return     $this->fetch("login/login");
+        return     $this->fetch("Login/login");
     }
     public function loginDO(){
         //接值过滤
         $name =    $this->xss(input('post.name'));
         $pwd  =    $this->xss(input('post.pwd'));
         //实例化model
-        $user =    new User();
+        $user =    new LoginModel();
+//        print_r($user);die;
         $res  =    $user->getLogin($name);
         //错误次数大于等于3提醒
         if($res['error_num']>=3){

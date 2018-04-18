@@ -1,5 +1,5 @@
  // 首页登录弹出框start
- $(".login").click(function(){
+ $(".Login").click(function(){
     $(".lglogin").show();
   });
   $(".close").click(function(){
