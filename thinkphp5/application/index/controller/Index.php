@@ -5,14 +5,14 @@ use think\Request;
 use think\Db;
 class Index extends \think\Controller
 {
+
     public function index()
     {
-    	return 123;
+
     }
     public function show(){
         echo 22;
     }
-
     public function messages(){
         $message = new Messages;
         $data = $message->display('1');
