@@ -26,7 +26,7 @@ class User  extends  \think\Controller{
     public function showUser(){
 
         $UserArr =  $this->Model->getUser();
-        return view("/User/user",['data'=>$UserArr]);
+        return view("/User/showUser",['data'=>$UserArr]);
     }
     /*
      * 添加用户
