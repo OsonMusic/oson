@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Oson - Message Board</title>
+    <style type="text/css">
+
+     html,body{
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+      height: 100%;
+      font-family: "微软雅黑";
+      background: white;
+     }
+     .boxDom{
+      width: 100%;
+      height: 95%;
+      position: relative;
+      overflow: hidden;
+     }
+     .idDom{
+      width: 100%;
+      height: 85px;
+      background:#666;
+      position: fixed;
+      bottom: 0px;
+     }
+     .contet{
+      width: 500px;
+      height: 40px;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      margin: auto;
+
+     }
+     .title{
+      display: inline;
+      font-size: 24px;
+      color: #ffffff;
+      padding-left: 30%;
+     }
+
+     .text{
+      width: 300px;
+      height: 35px;
+      border:none;
+      border-radius:5px;
+      font-size: 20px;
+      margin-left:10px;
+     }
+     .btn{
+      border-radius: 5px 5px;
+      width: 100px;
+      height: 40px;
+      color: #ffffff;
+      background-color: #27E1CE;
+      border:none;
+      font-size:16px;
+      margin-left:20px;
+      margin-top: 20px;
+      cursor: pointer;
+     }
+     .btn:hover {
+        background: white;
+        border-color: #27e1ce;
+        color: #27e1ce;
+        /*text-decoration: none;*/
+    }
+     .string {
+       width: 300px;
+       height: 40px;
+       margin-top: 20px;
+       position: absolute;
+       color: #000;
+       font-size: 20px;
+       font-family: "微软雅黑";
+
+     }
+
+
+ </style>
+</head>
+<body>
+    <div class = "boxDom" id = "boxDom">
+
+    <center>
+        <h1 style="color: #27E1CE; font-size: 46px;">Message Board</h1>
+    </center>
+    <div style="position: relative; top: -120px; left: 0px;">
+        <embed src="//music.163.com/style/swf/widget.swf?sid=2068698265&type=0&auto=1&width=310&height=90" width="330" height="110"  allowNetworking="all"></embed>
+    </div>
+     <div id = "idDom" class = "idDom">
+        <div class = "content">
+           <p class = "title"> 欢迎提出宝贵的建议 ~</p>
+           <input type = "text" class = "text"/>
+           <div style="display: none;" class="mess">
+              {volist name="data" id="v"}
+                  <b>{$v['msg_name']},</b>
+              {/volist}
+           </div>
+           <button type = "button" class = "btn" id = "btn" >发送</button>
+        </div>
+     </div>
+  </div>
+</body>
+<script src="__PUBLIC__/web/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script>
+     $(function(){
+
+
+        var boxDom = $("#boxDom");
+
+        var top, right;
+
+        var pageWidth  = parseInt($(document).width());
+        var pageHeight = parseInt($(document).height());
+
+        //点击按钮
+        $("#btn").bind("click",auto);//按钮绑定方法
+        //按下回车
+        mess()
+        setInterval(mess,21000);
+
+        document.onkeydown = function(){
+           if(event.keyCode == 13){
+
+               $(".btn").click()
+           }
+
+
+        }
+
+        function mess(){
+            var strs= new Array();
+            var str = $(".mess").text();
+            strs=str.split(",")
+
+            // console.log(strs)
+            for (var i=0;i<strs.length ;i++ )
+            {
+
+                var str = strs[i]; //分割后的字符输出
+
+                var createSpan = $("<span class = 'string'"+i+"'' style='width:210px;'></span>");
+
+                //3.给生成的元素赋值
+                var rightplus = 205+parseInt(100*Math.random());
+                createSpan.text(str);
+
+                //为了页面友好，清空刚刚输入的值
+                // $(".mess").text("");
+
+                // clearInterval(clock);
+                //生成元素一个随机的位置，为了使每条弹幕都出现在屏幕上不同的位置
+                // top = Math.floor(Math.random()*pageHeight);
+                top = parseInt(1200*Math.random());
+
+                createSpan.css({"top":top, "right": -rightplus, "color": getRandomColor()});
+                boxDom.append(createSpan);
+
+                //4.设置元素的动画效果，animate(css样式值，时间， 执行完动画调用的方法)
+                //页面上有N个span，只让最后一个动起来
+                var spandom = $("#boxDom>span:last-child");//找到最后一个span
+                    spandom.animate({right:pageWidth+900},40000,function(){
+                 //移除元素
+                   $(this).remove();
+
+                });
+
+
+
+            }
+
+        }
+
+
+        function auto(){
+
+          //1.获取输入的字符串
+          var str = $(".text").val();
+          // var mess = $(".mess").html();
+          //2.生成一个元素
+          var createSpan = $("<span class = 'string' ></span>");
+          // var createSpan1 = $("<span class = 'string1' ></span>");
+
+          //3.给生成的元素赋值
+
+          createSpan.text(str);
+          // createSpan1.text(mess);
+
+          //为了页面友好，清空刚刚输入的值
+          $(".text").val("");
+
+         //生成元素一个随机的位置，为了使每条弹幕都出现在屏幕上不同的位置
+          top = Math.floor(Math.random()*pageHeight);
+
+
+          createSpan.css({"top":top, "right": -300, "color": getRandomColor()});
+          // createSpan1.css({"top":top, "right": -300, "color": getRandomColor()});
+          boxDom.append(createSpan);
+          // boxDom.append(createSpan1);
+
+          //4.设置元素的动画效果，animate(css样式值，时间， 执行完动画调用的方法)
+          //页面上有N个span，只让最后一个动起来
+          var spandom = $("#boxDom>span:last-child");//找到最后一个span
+              spandom.animate({"right":pageWidth+300},35000,function(){
+           //移除元素
+           $(this).remove();
+
+          });
+
+      }
+
+
+      //定义一个可以生成随机颜色的方法,可以使每条弹幕的颜色不同
+      function getRandomColor(){
+
+         var colorArr = ['1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+         var color = "";
+
+         for(var i = 0; i < 6; i++){
+            color += colorArr[Math.floor(Math.random()*16)];
+         }
+
+         return "#"+color;
+         }
+
+     });
+
+
+
+      //发送留言
+      $(".btn").click(function(){
+          //alert(1)
+        var message = $(".text").val();
+        var its     = $(".btn");
+        var name    = "通过弹幕发送";
+        var display = 1;
+
+        if (message == '') {
+            return false;
+        }
+
+        $.ajax({
+          type:"post",
+          url:"{:url('Index/Visitcontent')}",
+          data:{message:message,name:name,display:display},
+          success:function(a){
+            if (a.msg=='yep') {
+                $(".btn").css('width','180px')
+                $(".btn").html('发射成功!')
+                auto();
+            }
+            if (a.msg=='error') {
+                alert('很抱歉,系统繁忙');
+            }
+            if(a.msg == 'max'){
+                $(".btn").unbind('click');
+                alert('今日留言次数上限(之后弹幕将不再存取与记录),请明天再来留言!');
+            }
+          }
+
+        })
+
+      })
+ </script>
+</html>
