@@ -31,7 +31,7 @@
         <td>{$vo['log_name']}</td>
         <td>{$vo['session_id']}</td>
         <td>{$vo['log_time']}</td>
-        <td>{$vo['log_ip']}</td>
+        <td class="ss" p="{$vo['log_id']}">{$vo['log_ip']}</td>
         <td><a href="#">查看</a> | <a href="#">操作</a></td>
       </tr>
       {/foreach}
@@ -48,4 +48,10 @@
     </ul>
 </div>
 </body>
+<script>
+    $(document).on("click",'.ss',function () {
+        var id=$(this).attr("p");
+        alert(id);
+    })
+</script>
 </html>
