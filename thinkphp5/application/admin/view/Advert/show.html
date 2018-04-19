@@ -20,6 +20,7 @@
                 <th>编号</th>
                 <th>音乐名称</th>
                 <th>链接</th>
+                <th>操作</th>
                 <th>添加时间</th>
             </tr>
             {foreach $data as $vo}
@@ -27,6 +28,15 @@
                 <td>{$vo['music_id']}</td>
                 <td>{$vo['music_name']}</td>
                 <td>{$vo['music_url']}</td>
+                <td>
+                    {if condition = "($vo['hot'] == 1)"}
+                    <span style="cursor: pointer">
+                        <font color="red" statu ="0" class="gai" p = "{$vo['music_id']}">热门</font></span>
+                    {else /}
+                    <span style="cursor: pointer">
+                        <font color="green" statu = "1" class="gai" p = "{$vo['music_id']}">冷门</font></span>
+                    {/if}
+                </td>
                 <td>{$vo['music_time']}</td>
             </tr>
             {/foreach}
@@ -43,4 +53,37 @@
     </ul>
 </div>
 </body>
+<script type="text/javascript">
+    $(document).on("click",".gai",function () {
+        var  id   = $(this).attr("p");
+        var  hot  = $(this).attr("statu");
+        var _this = $(this);
+        $.ajax({
+            type:"POST",
+            url:"{:url('Advert/hot')}",
+            data:{id:id,hot:hot},
+            success:function (res) {
+                if(res==1)
+                {
+                    if(hot==1)
+                    {
+                        _this.attr("statu","0");
+                        _this.attr("color","red");
+                        _this.html("热门");
+                    }
+                    else
+                    {
+                        _this.attr("statu","1");
+                        _this.attr("color","green");
+                        _this.html("冷门");
+                    }
+                }
+                else
+                {
+
+                }
+            }
+        })
+    })
+</script>
 </html>

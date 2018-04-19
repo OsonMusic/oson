@@ -79,7 +79,9 @@ class Advert  extends \think\Controller
 
     }
     /*
+     * @刘柯
      * 广告展示
+     * 2018/04/19 17：00
      */
     public function show()
     {
@@ -88,10 +90,11 @@ class Advert  extends \think\Controller
         $office = ($page-1)*$size;
         $sql    = "SELECT COUNT(*) as num FROM `oson_music`";
         $count  = Db::query($sql)[0]['num'];
-//        print_r($count);
+//        print_r($count);die();
         $best   = ceil($count/$size);
         $sql1   = "SELECT * FROM `oson_music` LIMIT $office,$size";
         $data   = Db::query($sql1);
+//        print_r($data);die();
         $last   = $page-1<1?1:$page-1;
         $next   = $page+1>$best?$best:$page+1;
         $this->assign("data",$data);
@@ -99,5 +102,27 @@ class Advert  extends \think\Controller
         $this->assign("last",$last);
         $this->assign("next",$next);
         return $this->fetch("show");
+    }
+    /*
+     * @刘柯
+     * 更改热门
+     * 2018/04/19 20：41
+     */
+    public function hot()
+    {
+        $data = input("post.");
+        $id   =  $data['id'];
+        $hot  = $data['hot'];
+        $rest['hot'] = $hot;
+        $res = Db::table("oson_music")->where(array("music_id"=>$id))->update($rest);
+        if($res)
+        {
+            return "1";
+        }
+        else
+        {
+            $sql = Db::table("oson_music")->getLastSql();
+            return $sql;
+        }
     }
 }
