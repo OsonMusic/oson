@@ -28,11 +28,11 @@
 						</tr>
 						{foreach $data as $v}
 						<tr height="40px">
-							<td>{$v.user_name}</td>
 							<td>{$v.role_name}</td>
+							<td>{$v.power_name}</td>
 							<td>{$v.addtime}</td>
 							<td>
-								<a href="javascript:void(0)" where="{$v.user_id}" where2="{$v.role_id}" class="delUserRole">
+								<a href="javascript:void(0)" where="{$v.power_id}" where2="{$v.role_id}" class="delRolePower">
 									<img class="operation delban" src="/admin/img/delete.png">
 								</a>
 							</td>
@@ -49,26 +49,27 @@
 	</div>
 	<!-- 删除弹出框  end-->
 </body>
+</html>
 <script type="text/javascript">
-    $(document).on("click",".delUserRole",function () {
-        var a      =  confirm("你确定要删除此角色吗？");
-        var userId =  $(this).attr("where");
+    $(document).on("click",".delRolePower",function () {
+        var a      =  confirm("你确定要删除此权限吗？");
+        var powerId =  $(this).attr("where");
         var roleId =  $(this).attr("where2");
         if(a){
             $.ajax({
                 type:"POST",
-                url:"{:url('Userroles/delUserRole')}",
-                data:{userId:userId,roleId:roleId},
+                url:"{:url('Rolepower/delRolePower')}",
+                data:{roleId:roleId,powerId:powerId},
                 dataType:"json",
                 success:function (e) {
+                    // alert(e)
                     if(e.e==1){
-                        location.href="showUserRole";
+                        location.href="showRolepower";
                     }else{
                         alert(e.m)
                     }
                 }
             })
-        }
+		}
     })
-</script>
-</html>
+	</script>

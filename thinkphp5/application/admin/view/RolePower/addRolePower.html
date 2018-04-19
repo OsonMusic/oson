@@ -21,10 +21,10 @@
 
 <body>
 <center>
-    <form action="{:url('Userroles/addUserRole')}" method="post">
+    <form action="{:url('Rolepower/addPowerDo')}" method="post">
 
 
-<h1>分配角色</h1>
+<h1>分配权限</h1>
 <!-- Popup -->
 <div id="Popup">
 
@@ -41,10 +41,10 @@
 <td><!-- selectbox -->
 <div class="selectbox" style="width:230px;">
 
-    <select name="user_id" class="select" style="border: none; height: 35px;">
+    <select name="role_id" class="select" style="border: none; height: 35px;">
         <option value="">请选择用户</option>
-        {foreach $data.user as $v}
-        <option value="{$v.user_id}">{$v.user_name}</option>
+        {foreach $data.role as $v}
+            <option value="{$v.role_id}">{$v.role_name}</option>
         {/foreach}
     </select>
 </div>
@@ -54,9 +54,10 @@
 <th>选择角色<span class="f_cB">*</span></th>
 <td><!-- selectbox -->
 <div class="selectbox" style="width:230px; height: 250px;">
-    {foreach $data.role as $v}
-        <input type="checkbox" value="{$v.role_id}" name="role_id[]">{$v.role_name}
-    {/foreach}
+        {foreach $data.power as $v}
+        <input type="checkbox" value="{$v.power_id}" name="power_id[]">{$v.power_name}
+        {/foreach}
+
 </div>
 <!-- /selectbox --></td>
 </tr>
