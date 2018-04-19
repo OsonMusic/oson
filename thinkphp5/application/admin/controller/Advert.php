@@ -78,4 +78,26 @@ class Advert  extends \think\Controller
         }
 
     }
+    /*
+     * 广告展示
+     */
+    public function show()
+    {
+        $page   = input("page","1");
+        $size   = 20;
+        $office = ($page-1)*$size;
+        $sql    = "SELECT COUNT(*) as num FROM `oson_music`";
+        $count  = Db::query($sql)[0]['num'];
+//        print_r($count);
+        $best   = ceil($count/$size);
+        $sql1   = "SELECT * FROM `oson_music` LIMIT $office,$size";
+        $data   = Db::query($sql1);
+        $last   = $page-1<1?1:$page-1;
+        $next   = $page+1>$best?$best:$page+1;
+        $this->assign("data",$data);
+        $this->assign("best",$best);
+        $this->assign("last",$last);
+        $this->assign("next",$next);
+        return $this->fetch("show");
+    }
 }

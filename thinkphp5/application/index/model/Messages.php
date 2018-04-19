@@ -10,6 +10,10 @@ class Messages extends Model{
    {
       return Db::table($this->tablename)->where('display','=',$display)->select();
    }
-
+   function Select($table)
+   {
+       $res = Db::table($table)->select();
+       return $res;
+   }
 
 }

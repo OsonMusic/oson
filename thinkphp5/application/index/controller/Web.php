@@ -11,9 +11,11 @@ use think\Request;
 use think\Db;
 class Web extends \think\Controller
 {
-     public function index(){
-
+     public function index()
+     {
+         $model = new Messages();
+         $data  = $model->Select("oson_advert");
+         $this->assign("data",$data);
         return $this->fetch('index');
-    }
-
+     }
 }
