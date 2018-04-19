@@ -23,18 +23,21 @@
 	text-align: left;
 	padding-left: 35px;
 }
+/*.btn_add{*/
+	/*background:   url('../img/btn_add.gif') 0px -1px no-repeat;*/
+/*}*/
 .btn_add{
-	background:   url('../images/btn_add.gif') 0px -1px no-repeat;
+	background:   url('../img/btn_add.gif') 0px -1px no-repeat;
 }
 .btn_add:hover{
-	background:   url('../images/btn_add_hover.gif') 0px 0px no-repeat;
+	background:   url('../img/btn_add_hover.gif') 0px 0px no-repeat;
 	color: #fff;
 }
 .btn_del{
-	background:   url('../images/btn_del.gif') 0px -1px no-repeat;
+	background:   url('../img/btn_del.gif') 0px -1px no-repeat;
 }
 .btn_del:hover{
-	background:   url('../images/btn_del_hover.gif') 0px 0px no-repeat;
+	background:   url('../img/btn_del_hover.gif') 0px 0px no-repeat;
 	color: #fff;
 }
 .btn_config{
@@ -87,18 +90,18 @@
 	color: #fff;
 }
 .btn_save2{
-	background:   url('../images/btn_save2.gif') 0px -1px no-repeat;
+	background:   url('../img/btn_save2.gif') 0px -1px no-repeat;
 }
 .btn_save2:hover{
-	background:   url('../images/btn_save2_hover.gif') 0px 0px no-repeat;
+	background:   url('../img/btn_save2_hover.gif') 0px 0px no-repeat;
 	color: #fff;
 }
 
 .btn_res{
-	background:   url('../images/btn_res.png') 0px -1px no-repeat;
+	background:   url('../img/btn_res.png') 0px -1px no-repeat;
 }
 .btn_res:hover{
-	background:   url('../images/btn_res_hover.png') 0px 0px no-repeat;
+	background:   url('../img/btn_res_hover.png') 0px 0px no-repeat;
 	color: #fff;
 }
 /*table*/
@@ -241,7 +244,8 @@ background:#fff;
 
 
 /*其他按钮*/
-/* .ext_btn {
+/*
+ .ext_btn {
 color: #333;
 background: #e6e6e6 url(../images/ext_btn.png);
 border: 1px solid #bac7d2;
