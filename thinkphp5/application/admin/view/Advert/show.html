@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="__PUBLIC__/admin/css/haiersoft.css" rel="stylesheet" type="text/css" media="screen,print" />
+    <link href="__PUBLIC__/admin/css/print.css" rel="stylesheet" type="text/css"  media="print" />
+    <script src="__PUBLIC__/admin/js/jquery-1.10.1.min.js"></script>
+    <script src="__PUBLIC__/admin/js/side.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="MainForm">
+    <div class="form_boxA">
+        <h2>音乐管理</h2>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th>编号</th>
+                <th>音乐名称</th>
+                <th>链接</th>
+                <th>操作</th>
+                <th>添加时间</th>
+            </tr>
+            {foreach $data as $vo}
+            <tr>
+                <td>{$vo['music_id']}</td>
+                <td>{$vo['music_name']}</td>
+                <td>{$vo['music_url']}</td>
+                <td>
+                    {if condition = "($vo['hot'] == 1)"}
+                    <span style="cursor: pointer">
+                        <font color="red" statu ="0" class="gai" p = "{$vo['music_id']}">热门</font></span>
+                    {else /}
+                    <span style="cursor: pointer">
+                        <font color="green" statu = "1" class="gai" p = "{$vo['music_id']}">冷门</font></span>
+                    {/if}
+                </td>
+                <td>{$vo['music_time']}</td>
+            </tr>
+            {/foreach}
+        </table>
+    </div>
+    <ul id="PageNum">
+        <li><a href="__PUBLIC__/admin/advert/show?page=1">首页</a></li>
+        <li><a href="__PUBLIC__/admin/advert/show?page=<?= $last?>">上一页</a></li>
+        <?php for($i=1;$i<=$best;$i++){?>
+        <li><a href="__PUBLIC__/admin/advert/show?page=<?= $i?>"><?= $i?></a></li>
+        <?php }?>
+        <li><a href="__PUBLIC__/admin/advert/show?page=<?= $next?>">下一页</a></li>
+        <li><a href="__PUBLIC__/admin/advert/show?page=<?= $best?>">尾页</a></li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript">
+    $(document).on("click",".gai",function () {
+        var  id   = $(this).attr("p");
+        var  hot  = $(this).attr("statu");
+        var _this = $(this);
+        $.ajax({
+            type:"POST",
+            url:"{:url('Advert/hot')}",
+            data:{id:id,hot:hot},
+            success:function (res) {
+                if(res==1)
+                {
+                    if(hot==1)
+                    {
+                        _this.attr("statu","0");
+                        _this.attr("color","red");
+                        _this.html("热门");
+                    }
+                    else
+                    {
+                        _this.attr("statu","1");
+                        _this.attr("color","green");
+                        _this.html("冷门");
+                    }
+                }
+                else
+                {
+
+                }
+            }
+        })
+    })
+</script>
+</html>

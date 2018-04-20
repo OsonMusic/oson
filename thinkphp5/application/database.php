@@ -13,18 +13,15 @@ return [
     // 数据库类型
     'type'            => 'mysql',
     // 服务器地址
-<<<<<<< HEAD
-    'hostname'        => '192.168.1.177',
-=======
-    'hostname'        => '60.205.186.249',
 
->>>>>>> 9a09a1009f6ef0a9e38eb1cd101a93debe99a414
+    'hostname'        => '192.168.1.177',
+
     // 数据库名
     'database'        => 'oson',
     // 用户名
     'username'        => 'root',
     // 密码
-    'password'        => 'root',    // 端口
+    'password'        => 'mypassword',    // 端口
     'hostport'        => '',
     // 连接dsn
     'dsn'             => '',
