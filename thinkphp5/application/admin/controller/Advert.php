@@ -1,5 +1,6 @@
 <?php
 namespace app\admin\controller;
+use app\admin\model\Advertmodel;
 use think\File;
 use think\Request;
 use think\Db;
@@ -160,5 +161,13 @@ class Advert  extends \think\Controller
         $this->assign("last",$last);
         $this->assign("next",$next);
         return $this->fetch("hot");
+    }
+    public function advertShow()
+    {
+        $sql  = "SELECT * FROM `oson_advert`";
+        $data = Db::query($sql);
+
+        $this->assign("data",$data);
+        return $this->fetch("advertShow");
     }
 }

@@ -14,44 +14,31 @@
 <body>
 <div id="MainForm">
     <div class="form_boxA">
-        <h2>音乐管理<?= $best * 20?></h2>
+        <h2></h2>
 
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th>编号</th>
-                <th>音乐名称</th>
+                <th>广告名称</th>
                 <th>链接</th>
-                <th>操作</th>
-                <th>添加时间</th>
+                <th>图片</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
+                <th>简介</th>
             </tr>
             {foreach $data as $vo}
             <tr>
-                <td>{$vo['music_id']}</td>
-                <td>{$vo['music_name']}</td>
-                <td>{$vo['music_url']}</td>
-                <td>
-                    {if condition = "($vo['hot'] == 1)"}
-                    <span style="cursor: pointer">
-                        <font color="red" statu ="0" class="gai" p = "{$vo['music_id']}">热门</font></span>
-                    {else /}
-                    <span style="cursor: pointer">
-                        <font color="green" statu = "1" class="gai" p = "{$vo['music_id']}">冷门</font></span>
-                    {/if}
-                </td>
-                <td>{$vo['music_time']}</td>
+                <td>{$vo['advert_id']}</td>
+                <td>{$vo['advert_name']}</td>
+                <td>{$vo['advert_url']}</td>
+                <td><img src="__PUBLIC__/uploads/{$vo['advert_img']}" alt="" width="150"></td>
+                <td>{$vo['start_time']}</td>
+                <td>{$vo['end_time']}</td>
+                <td>{$vo['advert_brief']}</td>
             </tr>
             {/foreach}
         </table>
     </div>
-    <ul id="PageNum">
-        <li><a href="__PUBLIC__/admin/advert/show?page=1">首页</a></li>
-        <li><a href="__PUBLIC__/admin/advert/show?page=<?= $last?>">上一页</a></li>
-        <!--<?php for($i=1;$i<=$best;$i++){?>-->
-        <!--<li><a href="__PUBLIC__/admin/advert/show?page=<?= $i?>"><?= $i?></a></li>-->
-        <!--<?php }?>-->
-        <li><a href="__PUBLIC__/admin/advert/show?page=<?= $next?>">下一页</a></li>
-        <li><a href="__PUBLIC__/admin/advert/show?page=<?= $best?>">尾页</a></li>
-    </ul>
 </div>
 </body>
 <script type="text/javascript">

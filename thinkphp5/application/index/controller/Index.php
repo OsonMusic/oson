@@ -42,8 +42,5 @@ class Index extends \think\Controller
         $sql = "INSERT INTO `oson_message` (`msg_user`, `msg_name`, `msg_ip`, `msg_time`)
                VALUES ('$visit_name', '$visit_message', '$visit_ip', '$time')";
         $ret = Db::execute($sql);
-
-
     }
-
 }
