@@ -29,13 +29,9 @@
                 <td>{$vo['music_name']}</td>
                 <td>{$vo['music_url']}</td>
                 <td>
-                    {if condition = "($vo['hot'] == 1)"}
                     <span style="cursor: pointer">
-                        <font color="red" statu ="0" class="gai" p = "{$vo['music_id']}">热门</font></span>
-                    {else /}
-                    <span style="cursor: pointer">
-                        <font color="green" statu = "1" class="gai" p = "{$vo['music_id']}">冷门</font></span>
-                    {/if}
+                        <font color="black" statu ="0" class="gai" p = "{$vo['music_id']}">取消热门</font>
+                    </span>
                 </td>
                 <td>{$vo['music_time']}</td>
             </tr>
@@ -43,13 +39,13 @@
         </table>
     </div>
     <ul id="PageNum">
-        <li><a href="__PUBLIC__/admin/advert/show?page=1">首页</a></li>
-        <li><a href="__PUBLIC__/admin/advert/show?page=<?= $last?>">上一页</a></li>
+        <li><a href="__PUBLIC__/admin/advert/hotShow?page=1">首页</a></li>
+        <li><a href="__PUBLIC__/admin/advert/hotShow?page=<?= $last?>">上一页</a></li>
         <?php for($i=1;$i<=$best;$i++){?>
-        <li><a href="__PUBLIC__/admin/advert/show?page=<?= $i?>"><?= $i?></a></li>
+        <li><a href="__PUBLIC__/admin/advert/hotShow?page=<?= $i?>"><?= $i?></a></li>
         <?php }?>
-        <li><a href="__PUBLIC__/admin/advert/show?page=<?= $next?>">下一页</a></li>
-        <li><a href="__PUBLIC__/admin/advert/show?page=<?= $best?>">尾页</a></li>
+        <li><a href="__PUBLIC__/admin/advert/hotShow?page=<?= $next?>">下一页</a></li>
+        <li><a href="__PUBLIC__/admin/advert/hotShow?page=<?= $best?>">尾页</a></li>
     </ul>
 </div>
 </body>
@@ -64,19 +60,10 @@
             data:{id:id,hot:hot},
             success:function (res) {
                 // alert(res)
-                if(res==1)                {
-                    if(hot==1)
-                    {
-                        _this.attr("statu","0");
-                        _this.attr("color","red");
-                        _this.html("热门");
-                    }
-                    else
-                    {
-                        _this.attr("statu","1");
-                        _this.attr("color","green");
-                        _this.html("冷门");
-                    }
+                if(res==1)
+                {
+
+                        _this.parent().parent().parent().remove();
                 }
                 else
                 {

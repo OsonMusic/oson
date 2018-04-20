@@ -1,7 +1,8 @@
 <?php
-namespace app\index\model;
-use think\Db;
+namespace app\admin\model;
 use think\Model;
+use think\Db;
+
 class Advert extends Model
 {
     public $tablename = "oson_advert";
