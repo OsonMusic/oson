@@ -73,6 +73,7 @@ class Img extends Controller
             }
         }
     }
+
     public function delImg(){
         $img_id=input("post.img_id");
         $rs=db('oson_img')->where(array('img_id'=>$img_id))->delete();
