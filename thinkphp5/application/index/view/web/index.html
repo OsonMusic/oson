@@ -846,31 +846,31 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 col-footer footer-1">
-						<div class="footer-heading"><h1><span style="color: #fff;">NEWSPAPER</span></h1></div>
+						<div class="footer-heading"><h1><span style="color: #fff;">Oson - messages</span></h1></div>
 						<div class="content">
-							<p>Never missed any post published in our site. Subscribe to our daly newsletter now.</p>
-							<strong>Email address:</strong>
-							<form action="#" method="post">
-								<input type="text" name="your-name" value="" size="40" placeholder="Your Email" />
+							<p>如果有什么建议的话，去我们的留言板看看吧，你也可以在下方留言哦</p>
+							<strong>留下的的建议:</strong>
+							<form action="{:url('web/msg')}" method="post">
+								<input type="text" name="msg_user" value="" size="40" placeholder="输入你的昵称吧" />
+								<input type="text" name="msg_name" value="" size="40" placeholder="说点什么吧" />
 								<input type="submit" value="SUBSCRIBE" class="btn btn-3" />
 							</form>
 						</div>
 					</div>
 					<div class="col-md-4 col-footer footer-2">
-						<div class="footer-heading"><h4>Tags</h4></div>
+						<div class="footer-heading"><h4>oson - blog</h4></div>
 						<div class="content">
-							<a href="{:url('index/messages')}">animals</a>
+							<a href="{:url('index/messages')}" target="_Blank">去留言板看看吧</a>
 
 						</div>
 					</div>
 					<div class="col-md-4 col-footer footer-3">
-						<div class="footer-heading"><h4>Link List</h4></div>
+						<div class="footer-heading"><h4>Oson Friends Link</h4></div>
 						<div class="content">
 							<ul>
-								<li><a href="#">MOST VISITED COUNTRIES</a></li>
-								<li><a href="#">5 PLACES THAT MAKE A GREAT HOLIDAY</a></li>
-								<li><a href="#">PEBBLE TIME STEEL IS ON TRACK TO SHIP IN JULY</a></li>
-								<li><a href="#">STARTUP COMPANY’S CO-FOUNDER TALKS ON HIS NEW PRODUCT</a></li>
+							  {volist name="data" id="v"}
+								<li><a href="http://{$v['link_url']}" target="_Blank">{$v['link_name']}</a></li>
+							  {/volist}
 							</ul>
 						</div>
 					</div>
@@ -878,7 +878,7 @@
 			</div>
 		</div>
 		<div class="copy-right">
-			<p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+			<p>Copyright &copy; 2018.oson music.<a target="_blank" href="http://www.cssmoban.com/">欧讯音乐</a></p>
 		</div>
 	</footer>
 	<!-- Footer -->

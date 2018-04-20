@@ -31,7 +31,6 @@ class Index extends \think\Controller
             $visit_name     = strip_tags($visit_name);
             //获取留言用户IP
             $visit_ip       = $_SERVER['SERVER_ADDR'];
-
         }else{
 
             //如果不是AJAX提交返回错误
@@ -42,5 +41,10 @@ class Index extends \think\Controller
         $sql = "INSERT INTO `oson_message` (`msg_user`, `msg_name`, `msg_ip`, `msg_time`)
                VALUES ('$visit_name', '$visit_message', '$visit_ip', '$time')";
         $ret = Db::execute($sql);
+
+
     }
+
+
+
 }
