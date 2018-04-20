@@ -6,6 +6,7 @@ use think\Db;
 class Advert  extends \think\Controller
 {
     /*
+     * @刘柯
      * 测试数据
      */
     public function index()
@@ -29,29 +30,29 @@ class Advert  extends \think\Controller
      */
     public function add()
     {
-        $file = request()->file('file');
-        $fileName = date("Ymd") . "/" . $this->file($file);
-        $data = input('post.');
-        $name = $this->xss($data['name']);
-        $start_time = $this->xss($data['start_time']);
-        $end_time = $this->xss($data['end_time']);
-        $url = "http://" . $data['url'];
-        $brief = $data['brief'];
-        $data['advert_name'] = $name;
-        $data['advert_url'] = $url;
+        $file                 = request()->file('file');
+        $fileName             = date("Ymd") . "/" . $this->file($file);
+        $data                 = input('post.');
+        $name                 = $this->xss($data['name']);
+        $start_time           = $this->xss($data['start_time']);
+        $end_time             = $this->xss($data['end_time']);
+        $url                  = "http://" . $data['url'];
+        $brief                = $data['brief'];
+        $data['advert_name']  = $name;
+        $data['advert_url']   = $url;
         $data['advert_brief'] = $brief;
-        $data['start_time'] = $start_time;
-        $data['end_time'] = $end_time;
+        $data['start_time']   = $start_time;
+        $data['end_time']     = $end_time;
         $data['advert_img']   = $fileName;
         $res = Db::table("oson_advert")->insert($data);
         if ($res)
         {
             $session = $_SESSION['user_info']['user_id'];
-            $time = time();
-            $ip = $_SERVER['SERVER_ADDR'];
-            $rest['log_name'] = "添加广告";
-            $rest['log_ip'] = $ip;
-            $rest['log_time'] = $time;
+            $time               = time();
+            $ip                 = $_SERVER['SERVER_ADDR'];
+            $rest['log_name']   = "添加广告";
+            $rest['log_ip']     = $ip;
+            $rest['log_time']   = $time;
             $rest['session_id'] = $session;
             $ret  = Db::table("oson_log")->insert($rest);
             if ($ret)
@@ -97,20 +98,22 @@ class Advert  extends \think\Controller
      */
     public function show()
     {
-        $page = input("get.page",1);
-        $size = 20;
-        $offset = ($page-1)*$size;
-        $sql1  = "SELECT count(*) as num FROM `oson_music`";
-        $count = Db::query($sql1)['0']['num'];
-        $sql2  = "SELECT * FROM `oson_music` LIMIT $offset,$size";
-        $data  = Db::query($sql2);
-        $best  = ceil($count/$size);
-        $last  = $page-1<1?1:$page-1;
-        $next = $page+1>$best?$best:$page+1;
+        $page    = input("get.page",1);
+        $size    = 20;
+        $offset  = ($page-1)*$size;
+        $sql1    = "SELECT count(*) as num FROM `oson_music`";
+        $count   = Db::query($sql1)['0']['num'];
+        $sql2    = "SELECT * FROM `oson_music` LIMIT $offset,$size";
+        $data    = Db::query($sql2);
+        $best    = ceil($count/$size);
+        $last    = $page-1<1?1:$page-1;
+        $next    = $page+1>$best?$best:$page+1;
+        $mbr     = Db::query($sql1);
         $this->assign("data",$data);
         $this->assign("best",$best);
         $this->assign("last",$last);
         $this->assign("next",$next);
+        $this->assign("mbr",$mbr);
         return $this->fetch("show");
     }
     /*
@@ -121,7 +124,7 @@ class Advert  extends \think\Controller
     public function hot()
     {
         $data        = input("post.");
-        $hot         = $this->xss($data['hot']);
+        $hot         =$data['hot'];
         $rest['hot'] = $this->xss($hot);
         $id          = $data['id'];
         $res         = Db::table("oson_music")->where(array("music_id"=>$id))->update($rest);
@@ -142,16 +145,16 @@ class Advert  extends \think\Controller
      */
     public function hotShow()
     {
-        $page = input("get.page",1);
-        $size = 20;
+        $page   = $this->xss(input("get.page",1));
+        $size   = 20;
         $offset = ($page-1)*$size;
-        $sql1  = "SELECT count(*) as num FROM `oson_music` WHERE `hot`='1'";
-        $count = Db::query($sql1)['0']['num'];
-        $sql2  = "SELECT * FROM `oson_music` WHERE `hot`='1' LIMIT $offset,$size";
-        $data  = Db::query($sql2);
-        $best  = ceil($count/$size);
-        $last  = $page-1<1?1:$page-1;
-        $next = $page+1>$best?$best:$page+1;
+        $sql1   = "SELECT count(*) as num FROM `oson_music` WHERE `hot`='1'";
+        $count  = Db::query($sql1)['0']['num'];
+        $sql2   = "SELECT * FROM `oson_music` WHERE `hot`='1' LIMIT $offset,$size";
+        $data   = Db::query($sql2);
+        $best   = ceil($count/$size);
+        $last   = $page-1<1?1:$page-1;
+        $next   = $page+1>$best?$best:$page+1;
         $this->assign("data",$data);
         $this->assign("best",$best);
         $this->assign("last",$last);

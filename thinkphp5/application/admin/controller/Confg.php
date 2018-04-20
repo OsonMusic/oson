@@ -6,16 +6,21 @@ use think\Request;
 use think\Db;
 class Confg extends \think\Controller
 {
+    protected $model;
+    function __construct()
+    {
+        $this->model = new Cong();
+    }
+
     /*
+     * @刘柯
+     * 2018/04/18
      * 展示主体
      */
     public function show()
     {
-        $config = new Cong();
-//        $data   = $config->isShow("1");
-        $data   = $config->Find("oson_config");
 
-//        print_r($data);die();
+        $data   = $this->model->Find("oson_config");
         $this->assign("data",$data);
         return $this->fetch("show");
     }
@@ -26,8 +31,7 @@ class Confg extends \think\Controller
      */
     public function update()
     {
-        $config = new Cong();
-        $data   = $config->isShow("1");
+        $data   = $this->model->isShow("1");
         $this->assign("data",$data);
         return $this->fetch("update");
     }
@@ -48,7 +52,6 @@ class Confg extends \think\Controller
         $rest['config_herad'] = $hread;
         $rest['config_time']  = $time;
         $id = '1';
-//        $res = Db::table('oson_config')->insert($rest);
         $res = db('oson_config')->where(array('config_id'=>$id))->update($rest);
         if($res)
         {
@@ -66,13 +69,10 @@ class Confg extends \think\Controller
      */
     public function statu()
     {
-        $data = input("post.");
+        $data    = input("post.");
         $is_show = $data['where'];
-//        $rest['is_show'] = $is_show;
-//        $id   = '1';
-//        $res  = db('oson_config')->where(array('config_id'=>$id))->update("$rest");
-        $sql = "UPDATE `oson_config` SET `is_show`='$is_show' WHERE (`config_id`='1')";
-        $res = Db::execute($sql);
+        $sql     = "UPDATE `oson_config` SET `is_show`='$is_show' WHERE (`config_id`='1')";
+        $res     = Db::execute($sql);
         if($res)
         {
             return "1";
