@@ -3,15 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>管理员管理</title>
-<link rel="stylesheet" type="text/css" href="/admin/css/css.css" />
-<script type="text/javascript" src="/admin/js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/css/css.css" />
+<script type="text/javascript" src="__PUBLIC__/admin/js/jquery.min.js"></script>
 <!-- <script type="text/javascript" src="js/page.js" ></script> -->
 </head>
 <body>
 	<div id="pageAll">
 		<div class="pageTop">
 			<div class="page">
-				<img src="/admin/img/coin02.png" /><span><a href="#">首页</a>&nbsp;-&nbsp;-</span>&nbsp;管理员管理
+				<img src="__PUBLIC__/admin/img/coin02.png" /><span><a href="#">首页</a>&nbsp;-&nbsp;-</span>&nbsp;管理员管理
 			</div>
 		</div>
 
@@ -27,9 +27,9 @@
 							<select name="parent_id" id="" class="userinput vpr">
 								<option value="">请选择父级权限</option>
 								{foreach $data as $v}
-									<option value="{$v.power_id}">
+									<option value="{$v['power_id']}">
 										<?php echo  str_repeat("&nbsp&nbsp&nbsp&nbsp",$v['f']) ?>
-										{$v.power_name}
+										{$v['power_name']}
 									</option>
 								{/foreach}
 							</select>
@@ -47,18 +47,18 @@
 							<td width="320px" class="tdColor">方法名称</td>
 							<td width="220px">操作</td>
 						</tr>
-						{foreach $data as $v}
+						{foreach $data as $vo}
 						<tr height="40px" id="tr{$v.power_id}">
-							<td>{$v.power_id}</td>
+							<td>{$vo.power_id}</td>
 							<td>
 								<?php echo  str_repeat("&nbsp&nbsp&nbsp&nbsp",$v['f']) ?>
-								{$v.power_name}
+								{$vo.power_name}
 							</td>
-							<td>{$v.controller_name}</td>
-							<td>{$v.action_name}</td>
+							<td>{$vo.controller_name}</td>
+							<td>{$vo.action_name}</td>
 							<td>
-								<a href="javascript:void(0)" class="delPower" where="{$v.power_id}">
-									<img class="operation delban" src="/admin/img/delete.png">
+								<a href="javascript:void(0)" class="delPower" where="{$vo.power_id}">
+									<img class="operation delban" src="__PUBLIC__/admin/img/delete.png">
 								</a>
 							</td>
 						</tr>

@@ -15,6 +15,7 @@ class Power  extends  \think\Controller{
         public function showPower(){
             $arr     =  $this->Model->getPower();
             $digui   =  $this->getSontree($arr);
+
             return  view("Power/showPower",["data"=>$digui]);
         }
         public function addPower(){
@@ -74,7 +75,7 @@ class Power  extends  \think\Controller{
             static  $arr=array();
             foreach ($data as $key => $value) {
                 if($value['parent_id']==$parent_id){
-                    $arr[]=$value;
+                    $arr[$key]=$value;
                     $arr[$key]['f']= $f;
                     $this->getSontree($data,$value['power_id'],$f+1);
                 }
