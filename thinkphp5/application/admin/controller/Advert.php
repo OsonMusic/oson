@@ -76,6 +76,73 @@ class Advert  extends \think\Controller
         {
             $this->error($file->getError());
         }
-
+    }
+    /*
+     * @刘柯
+     * 2018/04/20 9:22
+     * 展示翻页操作，kill李某
+     */
+    public function show()
+    {
+        $page = input("get.page",1);
+        $size = 20;
+        $offset = ($page-1)*$size;
+        $sql1  = "SELECT count(*) as num FROM `oson_music`";
+        $count = Db::query($sql1)['0']['num'];
+        $sql2  = "SELECT * FROM `oson_music` LIMIT $offset,$size";
+        $data  = Db::query($sql2);
+        $best  = ceil($count/$size);
+        $last  = $page-1<1?1:$page-1;
+        $next = $page+1>$best?$best:$page+1;
+        $this->assign("data",$data);
+        $this->assign("best",$best);
+        $this->assign("last",$last);
+        $this->assign("next",$next);
+        return $this->fetch("show");
+    }
+    /*
+     * @刘柯
+     * 2018/04/20 9:33
+     * 修改hot状态操作
+     */
+    public function hot()
+    {
+        $data = input("post.");
+        $hot = $data['hot'];
+        $rest['hot'] = $hot;
+        $id  = $data['id'];
+        $res = Db::table("oson_music")->where(array("music_id"=>$id))->update($rest);
+        if($res)
+        {
+            echo "1";
+        }
+        else
+        {
+            $sql = Db::table("oson_music")->getLastSql();
+            echo $sql;
+        }
+    }
+    /*
+     * @刘柯
+     * 2018/04/20 9:56
+     * 查询所有hot音乐
+     */
+    public function hotShow()
+    {
+        $page = input("get.page",1);
+        $size = 20;
+        $offset = ($page-1)*$size;
+        $sql1  = "SELECT count(*) as num FROM `oson_music` WHERE `hot`='1'";
+        $count = Db::query($sql1)['0']['num'];
+        $sql2  = "SELECT * FROM `oson_music` WHERE `hot`='1' LIMIT $offset,$size";
+        $data  = Db::query($sql2);
+        $best  = ceil($count/$size);
+        $last  = $page-1<1?1:$page-1;
+        $next = $page+1>$best?$best:$page+1;
+        $this->assign("data",$data);
+        $this->assign("best",$best);
+        $this->assign("last",$last);
+        $this->assign("next",$next);
+        return $this->fetch("hot");
     }
 }
