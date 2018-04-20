@@ -2,7 +2,7 @@
 namespace app\admin\model;
 use think\Model;
 use think\Db;
-class Config extends   Model
+class Confg extends   Model
 {
     public $tableName = "oson_config";
     public function isShow($str=''){

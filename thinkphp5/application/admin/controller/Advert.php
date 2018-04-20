@@ -12,13 +12,19 @@ class Advert  extends \think\Controller
     {
         return "101";
     }
-
+    /*
+     * @刘柯
+     * 页面渲染
+     * 2018/04/20 14:09
+     */
     public function advert()
     {
         return $this->fetch("advert");
     }
 
     /*
+     * @刘柯
+     * 201804/20 14:07 修改
      * 添加操作
      */
     public function add()
@@ -31,26 +37,33 @@ class Advert  extends \think\Controller
         $end_time = $this->xss($data['end_time']);
         $url = "http://" . $data['url'];
         $brief = $data['brief'];
-        $sql = "INSERT INTO `oson_advert` (`advert_name`, `advert_url`, `advert_brief`, `start_time`, `end_time`, `advert_img`)
-                VALUES ('$name', '$url', '$brief', '$start_time', '$end_time', '$fileName')";
-        $res = Db::execute($sql);
+        $data['advert_name'] = $name;
+        $data['advert_url'] = $url;
+        $data['advert_brief'] = $brief;
+        $data['start_time'] = $start_time;
+        $data['end_time'] = $end_time;
+        $data['advert_img']   = $fileName;
+        $res = Db::table("oson_advert")->insert($data);
         if ($res)
         {
             $session = $_SESSION['user_info']['user_id'];
-//            $session = "1";
             $time = time();
             $ip = $_SERVER['SERVER_ADDR'];
-            $sql_log = "INSERT INTO `oson_log` (`log_name`, `log_ip`, `log_time`, `session_id`) 
-                        VALUES ('添加广告', '$ip', '$time', '$session')";
-            $rest = Db::execute($sql_log);
-            if ($rest)
+            $rest['log_name'] = "添加广告";
+            $rest['log_ip'] = $ip;
+            $rest['log_time'] = $time;
+            $rest['session_id'] = $session;
+            $ret  = Db::table("oson_log")->insert($rest);
+            if ($ret)
             {
                 $this->success("广告添加成功", url('Advert/advert'));
             }
         }
         else
         {
-            $this->error();
+            $sql = Db::table("oson_advert")->getLastSql();
+//            return $sql;
+            $this->error("异常，请联络管理员");
         }
     }
 
@@ -107,11 +120,11 @@ class Advert  extends \think\Controller
      */
     public function hot()
     {
-        $data = input("post.");
-        $hot = $data['hot'];
-        $rest['hot'] = $hot;
-        $id  = $data['id'];
-        $res = Db::table("oson_music")->where(array("music_id"=>$id))->update($rest);
+        $data        = input("post.");
+        $hot         = $this->xss($data['hot']);
+        $rest['hot'] = $this->xss($hot);
+        $id          = $data['id'];
+        $res         = Db::table("oson_music")->where(array("music_id"=>$id))->update($rest);
         if($res)
         {
             echo "1";
