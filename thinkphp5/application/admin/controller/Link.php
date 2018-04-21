@@ -23,7 +23,7 @@ class Link extends Controller
    public function addlink(){
       $link_data = input('post.');
         // print_r($link_data);die;
-        $sql = "INSERT INTO `oson_link` (`link_name`, `link_url`) VALUES ('$link_data[link_name]', '$link_data[link_url]')";
+        $sql = "INSERT INTO `oson_link` (`link_name`, `link_url`) VALUES ('".$link_data['link_name']."', '".$link_data['link_url']."')";
         $ret = Db::execute($sql);
         if ($ret) {
             $this->success("添加友情链接成功",url('link/showlink'));

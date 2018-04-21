@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Newspaper</title>
+    <title>Oson-index</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../../public/web/css/bootstrap.min.css"  type="text/css">
@@ -74,9 +74,13 @@
 					</ol>
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner">
-						<div class="item active">
+
+						{foreach name="lunbo" item="vo" key="k" }
+
+
+						<div <?php if($k==1){?>class="item active"<?php }else{?>class="item"<?php }?>>
 						<!-- 这是轮播图 -->
-							<img src="../../../public/web/images/1.jpg" alt="First slide">
+							<img src="__PUBLIC__\uploads\{$vo['oson_path']}" alt="First slide">
 							<!-- Static Header -->
 							<div class="header-text hidden-xs">
 								<div class="col-md-12 text-center">
@@ -87,31 +91,32 @@
 								</div>
 							</div><!-- /header-text -->
 						</div>
-						<div class="item">
-							<img src="../../../public/web/images/2.jpg" alt="Second slide">
-							<!-- Static Header -->
-							<div class="header-text hidden-xs">
-								<div class="col-md-12 text-center">
-									<h2>Aenean feugiat in ante et blandit. Vestibulum</h2>
-									<br>
-									<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-									<br>
-								</div>
-							</div><!-- /header-text -->
-						</div>
-						<div class="item">
-							<img src="../../../public/web/images/3.jpg" alt="Third slide">
-							<!-- 这是最后一张轮播图 -->
-							<!-- Static Header -->
-							<div class="header-text hidden-xs">
-								<div class="col-md-12 text-center">
-									<h2>Curabitur tincidunt porta lorem vitae</h2>
-									<br>
-									<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-									<br>
-								</div>
-							</div><!-- /header-text -->
-						</div>
+						{/foreach}
+						<!--<div class="item">-->
+							<!--<img src="../../../public/web/images/2.jpg" alt="Second slide">-->
+							<!--&lt;!&ndash; Static Header &ndash;&gt;-->
+							<!--<div class="header-text hidden-xs">-->
+								<!--<div class="col-md-12 text-center">-->
+									<!--<h2>Aenean feugiat in ante et blandit. Vestibulum</h2>-->
+									<!--<br>-->
+									<!--<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>-->
+									<!--<br>-->
+								<!--</div>-->
+							<!--</div>&lt;!&ndash; /header-text &ndash;&gt;-->
+						<!--</div>-->
+						<!--<div class="item">-->
+							<!--<img src="../../../public/web/images/3.jpg" alt="Third slide">-->
+							<!--&lt;!&ndash; 这是最后一张轮播图 &ndash;&gt;-->
+							<!--&lt;!&ndash; Static Header &ndash;&gt;-->
+							<!--<div class="header-text hidden-xs">-->
+								<!--<div class="col-md-12 text-center">-->
+									<!--<h2>Curabitur tincidunt porta lorem vitae</h2>-->
+									<!--<br>-->
+									<!--<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>-->
+									<!--<br>-->
+								<!--</div>-->
+							<!--</div>&lt;!&ndash; /header-text &ndash;&gt;-->
+						<!--</div>-->
 					</div>
 					<!-- Controls -->
 					<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -252,13 +257,13 @@
 					</div>
 					<div class="box">
 						<div class="box-header header-natural">
-							<h2>Natural</h2>
+							<h2>明星周边</h2>
 						</div>
 						<div class="box-content">
 							<div class="row">
 								<div class="col-md-6">
 									<img src="../../../public/web/images/6.jpg" />
-									<h3><a href="#">Marshall, Will, and Holly on a Routine Expedition</a></h3>
+									<h3><a href="#">鹿晗 </a></h3>
 									<span><i class="fa fa-heart"></i> 1,200 / <i class="fa fa-calendar"></i> 25/3/2015 / <i class="fa fa-comment-o"> / </i> 10 <i class="fa fa-eye"></i> 945</span>
 									<span class="rating">
 										<i class="fa fa-star"></i>
@@ -267,11 +272,11 @@
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star-half"></i>
 									</span>
-									<p>Marshall, Will, and Holly on a routine expedition, met the greatest earthquake ever known. High on the rapids, it struck their tiny raft! And plunged them down a thousand feet below…...</p>
+									<p>鹿晗（LU HAN），1990年4月20日出生于北京海淀区，中国内地影视男演员、歌手。2008年赴韩国留学期间在明洞逛街时，被韩国SM娱乐有限公司星探发掘成为旗下练习生。2012年4月以韩国男子组合EXO/EXO-M成员正式出道，组合内担任主唱、领舞、门面担当。2014年8月，个人微博单条评论创吉尼斯世界纪录，成为中文社交媒体上的首位吉尼斯世界纪录获得者。</p>
 								</div>
 								<div class="col-md-6">
 									<img src="../../../public/web/images/7.jpg" />
-									<h3><a href="#">Your Tread Must be Light and Sure as Though Your Path...</a></h3>
+									<h3><a href="#">邓紫棋</a></h3>
 									<span><i class="fa fa-heart"></i> 1,200 / <i class="fa fa-calendar"></i> 25/3/2015 / <i class="fa fa-comment-o"> / </i> 3 <i class="fa fa-eye"></i> 1007</span>
 									<span class="rating">
 										<i class="fa fa-star"></i>
@@ -280,7 +285,8 @@
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star-half"></i>
 									</span>
-									<p>There once was a story about a man who could turn invisible. I thought it was only a story… until it happened to me. Ok, so here’s how it works: there’s this stuff called...</p>
+									<p>G.E.M.邓紫棋（Gloria Tang Tsz-Kei）.，原名邓诗颖，1991年8月16日生于中国上海，4岁移居香港，中国香港创作型女歌手 [1]  。
+										2008年7月10日以16岁之龄出道。同年10月16日发行首张EP《G.E.M.》，取得香港各大乐坛颁奖礼新人金奖 [2-3]  。2011年5月，以19岁之龄在香港红馆举行5场个人演唱会 [4]  。2012年7月，发行第四张个人专辑《Xposed》，凭借该专辑邓紫棋在2013年获得IFPI香港唱片销量大奖全年最高销量女歌手奖、最高销量国语唱片奖 [5]  ，并入围第24届金曲奖最佳国语女歌手奖 [6]  。2014年1月，参加湖南卫视《我是歌手第二季》节目，获得总决赛亚军 [7]  。</p>
 								</div>
 							</div>
 						</div>
@@ -316,7 +322,7 @@
 											<img src="../../../public/web/images/21.jpg" />
 										</div>
 										<div class="wrapper">
-											<h5 class="vid-name"><a href="#" style="font-size: 8px;">{$v.music_name}</a></h5>
+											<h5 class="vid-name"><a href="{$v.music_url}" style="font-size: 8px;" target="_blank">{$v.music_name}</a></h5>
 											<div class="info">
 												<h6><a href="#"></a></h6>
 												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>{$v.music_time}</span>
@@ -434,29 +440,33 @@
 					</div>
 					<!---- Start Widget ---->
 					<div class="widget wid-new-post">
-						<div class="heading"><h4>New Posts</h4></div>
+						<div class="heading"><h4>广告列表</h4></div>
 						<div class="content">
-							<h6>Lorem Ipsum is simply dummy</h6>
-							<img src="../../../public/web/images/22.jpg" />
+							<!--广告管理-->
+
+							{foreach name="gunagao" item="vo" }
+							<h6><a href="{$vo.advert_url}" target="_blank">{$vo.advert_name}</a></h6>
+							<a href="{$vo.advert_url}" target="_blank"><img src="__PUBLIC__/uploads/{$vo.advert_img}" /></a>
 							<ul class="list-inline">
-								<li><i class="fa fa-calendar"></i>25/3/2015</li>
+								<li><i class="fa fa-calendar"></i>{$vo.start_time}</li>
 								<li><i class="fa fa-comments"></i>1,200</li>
 							</ul>
-							<p>Title should not overflow the content area A few things to check for: Non-breaking text in the...</p>
-							<h6>Lorem Ipsum is simply dummy</h6>
-							<img src="../../../public/web/images/23.jpg" />
-							<ul class="list-inline">
-								<li><i class="fa fa-calendar"></i>25/3/2015</li>
-								<li><i class="fa fa-comments"></i>1,200</li>
-							</ul>
-							<p>Title should not overflow the content area A few things to check for: Non-breaking text in the...</p>
-							<h6>Lorem Ipsum is simply dummy</h6>
-							<img src="../../../public/web/images/24.jpg" />
-							<ul class="list-inline">
-								<li><i class="fa fa-calendar"></i>25/3/2015</li>
-								<li><i class="fa fa-comments"></i>1,200</li>
-							</ul>
-							<p>Title should not overflow the content area A few things to check for: Non-breaking text in the...</p>
+							<p>{$vo.advert_brief}</p>
+							{/foreach}
+							<!--<h6>Lorem Ipsum is simply dummy</h6>-->
+							<!--<img src="../../../public/web/images/23.jpg" />-->
+							<!--<ul class="list-inline">-->
+								<!--<li><i class="fa fa-calendar"></i>25/3/2015</li>-->
+								<!--<li><i class="fa fa-comments"></i>1,200</li>-->
+							<!--</ul>-->
+							<!--<p>Title should not overflow the content area A few things to check for: Non-breaking text in the...</p>-->
+							<!--<h6>Lorem Ipsum is simply dummy</h6>-->
+							<!--<img src="../../../public/web/images/24.jpg" />-->
+							<!--<ul class="list-inline">-->
+								<!--<li><i class="fa fa-calendar"></i>25/3/2015</li>-->
+								<!--<li><i class="fa fa-comments"></i>1,200</li>-->
+							<!--</ul>-->
+							<!--<p>Title should not overflow the content area A few things to check for: Non-breaking text in the...</p>-->
 						</div>
 					</div>
 					<!---- Start Widget ---->

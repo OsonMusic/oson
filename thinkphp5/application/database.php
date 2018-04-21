@@ -14,14 +14,14 @@ return [
     'type'            => 'mysql',
     // 服务器地址
 
-    'hostname'        => '192.168.1.185',
+    'hostname'        => '60.205.186.249',
 
     // 数据库名
     'database'        => 'oson',
     // 用户名
     'username'        => 'root',
     // 密码
-    'password'        => 'mypassword',    // 端口
+    'password'        => 'root',    // 端口
     'hostport'        => '',
     // 连接dsn
     'dsn'             => '',

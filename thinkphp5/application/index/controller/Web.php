@@ -21,12 +21,15 @@ class Web extends \think\Controller
          $res2 = DB::query("SELECT * FROM `oson_music` order by rand() LIMIT 3");
          $res3 = DB::query("SELECT * FROM `oson_music` order by rand() LIMIT 3");
          $ishot = DB::query("SELECT * FROM `oson_music` WHERE `hot` = '1' limit 4");
+         $lubo=db('oson_img')->where(array('img_status'=>1))->select();
+         $guangao=DB::table("oson_advert")->select();
+        // print_r($guangao);die();
          // print_r($ishot);die;
          // print_r($res);die;
          $data  = $this->Model->Select("oson_link");
          // print_r($data);die;
          // $this->assign("data",$data);
-        return view("index",['data'=>$data,'res1'=>$res1,'res2'=>$res2,'res3'=>$res3,'ishot'=>$ishot]);
+        return view("index",['data'=>$data,'res1'=>$res1,'res2'=>$res2,'res3'=>$res3,'ishot'=>$ishot,'lunbo'=>$lubo,'gunagao'=>$guangao]);
 
      }
 

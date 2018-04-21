@@ -7,10 +7,10 @@ use think\Db;
 class Confg extends \think\Controller
 {
     protected $model;
-    function __construct()
-    {
-        $this->model = new Cong();
-    }
+//    function __construct()
+//    {
+//        $this->model = new Cong();
+//    }
 
     /*
      * @刘柯
@@ -19,8 +19,9 @@ class Confg extends \think\Controller
      */
     public function show()
     {
+        $model = new Cong();
 
-        $data   = $this->model->Find("oson_config");
+        $data   = $model->Find("oson_config");
         $this->assign("data",$data);
         return $this->fetch("show");
     }
@@ -31,7 +32,8 @@ class Confg extends \think\Controller
      */
     public function update()
     {
-        $data   = $this->model->isShow("1");
+        $model = new Cong();
+        $data   = $model->isShow("1");
         $this->assign("data",$data);
         return $this->fetch("update");
     }

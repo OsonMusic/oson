@@ -4,6 +4,7 @@ use app\admin\model\Advertmodel;
 use think\File;
 use think\Request;
 use think\Db;
+use think\Session;
 class Advert  extends \think\Controller
 {
     /*
@@ -34,21 +35,23 @@ class Advert  extends \think\Controller
         $file                 = request()->file('file');
         $fileName             = date("Ymd") . "/" . $this->file($file);
         $data                 = input('post.');
+
         $name                 = $this->xss($data['name']);
         $start_time           = $this->xss($data['start_time']);
         $end_time             = $this->xss($data['end_time']);
         $url                  = "http://" . $data['url'];
         $brief                = $data['brief'];
-        $data['advert_name']  = $name;
-        $data['advert_url']   = $url;
-        $data['advert_brief'] = $brief;
-        $data['start_time']   = $start_time;
-        $data['end_time']     = $end_time;
-        $data['advert_img']   = $fileName;
-        $res = Db::table("oson_advert")->insert($data);
+        $arr['advert_name']  = $name;
+        $arr['advert_url']   = $url;
+        $arr['advert_brief'] = $brief;
+        $arr['start_time']   = $start_time;
+        $arr['end_time']     = $end_time;
+        $arr['advert_img']   = $fileName;
+
+        $res = Db::table("oson_advert")->insert($arr);
         if ($res)
         {
-            $session = $_SESSION['user_info']['user_id'];
+            $session = Session::get('user_info')['user_id'];
             $time               = time();
             $ip                 = $_SERVER['SERVER_ADDR'];
             $rest['log_name']   = "添加广告";
