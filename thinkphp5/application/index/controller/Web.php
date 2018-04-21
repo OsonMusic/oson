@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-19 14:22:29
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-20 17:24:53
+ * @Last Modified time: 2018-04-21 10:12:16
  */
 namespace app\index\controller;
 use app\index\model\WebModel;
@@ -17,11 +17,16 @@ class Web extends \think\Controller
      }
      public function index()
      {
-
+         $res1 = DB::query("SELECT * FROM `oson_music` order by rand() LIMIT 3");
+         $res2 = DB::query("SELECT * FROM `oson_music` order by rand() LIMIT 3");
+         $res3 = DB::query("SELECT * FROM `oson_music` order by rand() LIMIT 3");
+         $ishot = DB::query("SELECT * FROM `oson_music` WHERE `hot` = '1' limit 4");
+         // print_r($ishot);die;
+         // print_r($res);die;
          $data  = $this->Model->Select("oson_link");
          // print_r($data);die;
          // $this->assign("data",$data);
-        return view("index",['data'=>$data]);
+        return view("index",['data'=>$data,'res1'=>$res1,'res2'=>$res2,'res3'=>$res3,'ishot'=>$ishot]);
 
      }
 

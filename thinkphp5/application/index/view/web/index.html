@@ -169,7 +169,7 @@
 										<div class="zoom-container">
 											<div class="zoom-caption">
 												<span class="vimeo">Vimeo</span>
-												<a href="single.html">
+												<a href="#">
 													<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
 												</a>
 												<p>Video's Name</p>
@@ -186,48 +186,24 @@
 									<p class="more">Aenean feugiat in ante et blandit. Vestibulum posuere molestie risus, ac interdum magna porta non. Pellentesque rutrum fringilla elementum. Curabitur tincidunt porta lorem vitae accumsan.</p>
 								</div>
 								<div class="col-md-6">
+
+									{volist name="ishot" id="v"}
 									<div class="post wrap-vid">
 										<div class="zoom-container">
 											<div class="zoom-caption">
-												<span class="vimeo">Vimeo</span>
-												<a href="single.html">
+												<span class="vimeo">热门</span>
+												<a href="">
 													<i class="fa fa-play-circle-o fa-3x" style="color: #fff"></i>
 												</a>
-												<p>Video's Name</p>
+												<p>热门歌曲</p>
 											</div>
-											<img src="../../../public/web/images/1.jpg" />
+											<img src="../../../public/web/images/19.jpg" />
 										</div>
 										<div class="wrapper">
-											<h5 class="vid-name"><a href="#">Video's Name</a></h5>
+											<h5 class="vid-name"><a href="#" style="font-size:8px">{$v.music_name}</a></h5>
 											<div class="info">
-												<h6>By <a href="#">Kelvin</a></h6>
-												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>25/3/2015</span>
-												<span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-half"></i>
-												</span>
-											</div>
-										</div>
-									</div>
-									<div class="post wrap-vid">
-										<div class="zoom-container">
-											<div class="zoom-caption">
-												<span class="vimeo">Vimeo</span>
-												<a href="single.html">
-													<i class="fa fa-play-circle-o fa-3x" style="color: #fff"></i>
-												</a>
-												<p>Video's Name</p>
-											</div>
-											<img src="../../../public/web/images/2.jpg" />
-										</div>
-										<div class="wrapper">
-											<h5 class="vid-name"><a href="#">Video's Name</a></h5>
-											<div class="info">
-												<h6>By <a href="#">Kelvin</a></h6>
-												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>25/3/2015</span>
+												<h6><a href="#"></a></h6>
+												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>{$v.music_time}</span>
 												<span class="rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -238,58 +214,9 @@
 											</div>
 										</div>
 									</div>
-									<div class="post wrap-vid">
-										<div class="zoom-container">
-											<div class="zoom-caption">
-												<span class="vimeo">Vimeo</span>
-												<a href="single.html">
-													<i class="fa fa-play-circle-o fa-3x" style="color: #fff"></i>
-												</a>
-												<p>Video's Name</p>
-											</div>
-											<img src="../../../public/web/images/3.jpg" />
-										</div>
-										<div class="wrapper">
-											<h5 class="vid-name"><a href="#">Video's Name</a></h5>
-											<div class="info">
-												<h6>By <a href="#">Kelvin</a></h6>
-												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>25/3/2015</span>
-												<span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-half"></i>
-												</span>
-											</div>
-										</div>
-									</div>
-									<div class="post wrap-vid">
-										<div class="zoom-container">
-											<div class="zoom-caption">
-												<span class="vimeo">Vimeo</span>
-												<a href="single.html">
-													<i class="fa fa-play-circle-o fa-3x" style="color: #fff"></i>
-												</a>
-												<p>Video's Name</p>
-											</div>
-											<img src="../../../public/web/images/1.jpg" />
-										</div>
-										<div class="wrapper">
-											<h5 class="vid-name"><a href="#">Video's Name</a></h5>
-											<div class="info">
-												<h6>By <a href="#">Kelvin</a></h6>
-												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>25/3/2015</span>
-												<span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-half"></i>
-												</span>
-											</div>
-										</div>
-									</div>
+									{/volist}
+
+
 								</div>
 							</div>
 						</div>
@@ -365,32 +292,34 @@
 					<!---- Start Widget ---->
 					<div class="widget wid-vid">
 						<div class="heading">
-							<h4>Videos</h4>
+							<h4>热门推荐</h4>
 						</div>
 						<div class="content">
 							<ul class="nav nav-tabs">
-								<li class="active"><a data-toggle="tab" href="#most">Most Plays</a></li>
+								<li class="active"><a data-toggle="tab" href="#most">网络歌曲</a></li>
 								<li><a data-toggle="tab" href="#popular">Popular</a></li>
-								<li><a data-toggle="tab" href="#random">Random</a></li>
+								<li><a data-toggle="tab" href="#random">Classical</a></li>
 							</ul>
 							<div class="tab-content">
 								<div id="most" class="tab-pane fade in active">
+									<!-- 这循环体开始 -->
+									{volist name="res1" id="v"}
 									<div class="post wrap-vid">
 										<div class="zoom-container">
 											<div class="zoom-caption">
-												<span class="youtube">Youtube</span>
+												<span class="youtube">网络</span>
 												<a href="single.html">
 													<i class="fa fa-play-circle-o fa-3x" style="color: #fff"></i>
 												</a>
-												<p>Video's Name</p>
+												<p>网络</p>
 											</div>
-											<img src="../../../public/web/images/4.jpg" />
+											<img src="../../../public/web/images/21.jpg" />
 										</div>
 										<div class="wrapper">
-											<h5 class="vid-name"><a href="#">Video's Name</a></h5>
+											<h5 class="vid-name"><a href="#" style="font-size: 8px;">{$v.music_name}</a></h5>
 											<div class="info">
-												<h6>By <a href="#">Kelvin</a></h6>
-												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>25/3/2015</span>
+												<h6><a href="#"></a></h6>
+												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>{$v.music_time}</span>
 												<span class="rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -401,76 +330,30 @@
 											</div>
 										</div>
 									</div>
-									<div class="post wrap-vid">
-										<div class="zoom-container">
-											<div class="zoom-caption">
-												<span class="vimeo">Vimeo</span>
-												<a href="single.html">
-													<i class="fa fa-play-circle-o fa-3x" style="color: #fff"></i>
-												</a>
-												<p>Video's Name</p>
-											</div>
-											<img src="../../../public/web/images/4.jpg" />
-										</div>
-										<div class="wrapper">
-											<h5 class="vid-name"><a href="#">Video's Name</a></h5>
-											<div class="info">
-												<h6>By <a href="#">Kelvin</a></h6>
-												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>25/3/2015</span>
-												<span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-half"></i>
-												</span>
-											</div>
-										</div>
-									</div>
-									<div class="post wrap-vid">
-										<div class="zoom-container">
-											<div class="zoom-caption">
-												<span class="youtube">Youtube</span>
-												<a href="single.html">
-													<i class="fa fa-play-circle-o fa-3x" style="color: #fff"></i>
-												</a>
-												<p>Video's Name</p>
-											</div>
-											<img src="../../../public/web/images/4.jpg" />
-										</div>
-										<div class="wrapper">
-											<h5 class="vid-name"><a href="#">Video's Name</a></h5>
-											<div class="info">
-												<h6>By <a href="#">Kelvin</a></h6>
-												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>25/3/2015</span>
-												<span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-half"></i>
-												</span>
-											</div>
-										</div>
-									</div>
+									{/volist}
+									<!-- 结束 -->
+
 								</div>
+								<!-- 循环体 2-->
 								<div id="popular" class="tab-pane fade">
+								<!-- 这是第二个循环体开始 -->
+								{volist name="res2" id="v"}
 									<div class="post wrap-vid">
 										<div class="zoom-container">
 											<div class="zoom-caption">
-												<span class="youtube">Youtube</span>
+												<span class="youtube">Popular</span>
 												<a href="single.html">
 													<i class="fa fa-play-circle-o fa-3x" style="color: #fff"></i>
 												</a>
-												<p>Video's Name</p>
+												<p>Popular</p>
 											</div>
-											<img src="../../../public/web/images/4.jpg" />
+											<img src="../../../public/web/images/15.jpg" />
 										</div>
 										<div class="wrapper">
-											<h5 class="vid-name"><a href="#">Video's Name</a></h5>
+											<h5 class="vid-name"><a href="#" style="font-size: 8px;">{$v.music_name}</a></h5>
 											<div class="info">
-												<h6>By <a href="#">Kelvin</a></h6>
-												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>25/3/2015</span>
+												<h6><a href="#"></a></h6>
+												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>{$v.music_time}</span>
 												<span class="rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -481,76 +364,30 @@
 											</div>
 										</div>
 									</div>
-									<div class="post wrap-vid">
-										<div class="zoom-container">
-											<div class="zoom-caption">
-												<span class="youtube">Youtube</span>
-												<a href="single.html">
-													<i class="fa fa-play-circle-o fa-3x" style="color: #fff"></i>
-												</a>
-												<p>Video's Name</p>
-											</div>
-											<img src="../../../public/web/images/4.jpg" />
-										</div>
-										<div class="wrapper">
-											<h5 class="vid-name"><a href="#">Video's Name</a></h5>
-											<div class="info">
-												<h6>By <a href="#">Kelvin</a></h6>
-												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>25/3/2015</span>
-												<span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-half"></i>
-												</span>
-											</div>
-										</div>
-									</div>
-									<div class="post wrap-vid">
-										<div class="zoom-container">
-											<div class="zoom-caption">
-												<span class="vimeo">Vimeo</span>
-												<a href="single.html">
-													<i class="fa fa-play-circle-o fa-3x" style="color: #fff"></i>
-												</a>
-												<p>Video's Name</p>
-											</div>
-											<img src="../../../public/web/images/4.jpg" />
-										</div>
-										<div class="wrapper">
-											<h5 class="vid-name"><a href="#">Video's Name</a></h5>
-											<div class="info">
-												<h6>By <a href="#">Kelvin</a></h6>
-												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>25/3/2015</span>
-												<span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-half"></i>
-												</span>
-											</div>
-										</div>
-									</div>
+									{/volist}
+									<!-- 结束 -->
+
 								</div>
+								<!-- 3个 -->
 								<div id="random" class="tab-pane fade">
+								<!-- 第三个循环体 -->
+								{volist name="res3" id="v"}
 									<div class="post wrap-vid">
 										<div class="zoom-container">
 											<div class="zoom-caption">
-												<span class="vimeo">Vimeo</span>
+												<span class="vimeo">Classical</span>
 												<a href="single.html">
 													<i class="fa fa-play-circle-o fa-3x" style="color: #fff"></i>
 												</a>
-												<p>Video's Name</p>
+												<p>Classical</p>
 											</div>
-											<img src="../../../public/web/images/4.jpg" />
+											<img src="../../../public/web/images/14.jpg" />
 										</div>
 										<div class="wrapper">
-											<h5 class="vid-name"><a href="#">Video's Name</a></h5>
+											<h5 class="vid-name"><a href="#" style="font-size: 8px">{$v.music_name}</a></h5>
 											<div class="info">
 												<h6>By <a href="#">Kelvin</a></h6>
-												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>25/3/2015</span>
+												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>{$v.music_time}</span>
 												<span class="rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -561,58 +398,9 @@
 											</div>
 										</div>
 									</div>
-									<div class="post wrap-vid">
-										<div class="zoom-container">
-											<div class="zoom-caption">
-												<span class="vimeo">Vimeo</span>
-												<a href="single.html">
-													<i class="fa fa-play-circle-o fa-3x" style="color: #fff"></i>
-												</a>
-												<p>Video's Name</p>
-											</div>
-											<img src="../../../public/web/images/4.jpg" />
-										</div>
-										<div class="wrapper">
-											<h5 class="vid-name"><a href="#">Video's Name</a></h5>
-											<div class="info">
-												<h6>By <a href="#">Kelvin</a></h6>
-												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>25/3/2015</span>
-												<span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-half"></i>
-												</span>
-											</div>
-										</div>
-									</div>
-									<div class="post wrap-vid">
-										<div class="zoom-container">
-											<div class="zoom-caption">
-												<span class="vimeo">Vimeo</span>
-												<a href="single.html">
-													<i class="fa fa-play-circle-o fa-3x" style="color: #fff"></i>
-												</a>
-												<p>Video's Name</p>
-											</div>
-											<img src="../../../public/web/images/4.jpg" />
-										</div>
-										<div class="wrapper">
-											<h5 class="vid-name"><a href="#">Video's Name</a></h5>
-											<div class="info">
-												<h6>By <a href="#">Kelvin</a></h6>
-												<span><i class="fa fa-heart"></i>1,200 / <i class="fa fa-calendar"></i>25/3/2015</span>
-												<span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-half"></i>
-												</span>
-											</div>
-										</div>
-									</div>
+									{/volist}
+									<!-- 结束 -->
+
 								</div>
 							</div>
 						</div>
