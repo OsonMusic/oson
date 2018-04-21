@@ -135,8 +135,8 @@ class Advert  extends \think\Controller
         }
         else
         {
-            $sql = Db::table("oson_music")->getLastSql();
-            echo $sql;
+//            $sql = Db::table("oson_music")->getLastSql();
+            echo "0";
         }
     }
     /*
@@ -144,7 +144,7 @@ class Advert  extends \think\Controller
      * 2018/04/20 9:56
      * 查询所有hot音乐
      */
-    public function hotShow()
+    public function hotMusic()
     {
         $page   = $this->xss(input("get.page",1));
         $size   = 20;
@@ -162,11 +162,15 @@ class Advert  extends \think\Controller
         $this->assign("next",$next);
         return $this->fetch("hot");
     }
+    /*
+     * @刘柯
+     * 2018/04/21 10:15
+     * 广告列表
+     */
     public function advertShow()
     {
         $sql  = "SELECT * FROM `oson_advert`";
         $data = Db::query($sql);
-
         $this->assign("data",$data);
         return $this->fetch("advertShow");
     }
