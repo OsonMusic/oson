@@ -14,7 +14,7 @@ return [
     'type'            => 'mysql',
     // 服务器地址
 
-    'hostname'        => '192.168.1.177',
+    'hostname'        => '192.168.1.185',
 
     // 数据库名
     'database'        => 'oson',
