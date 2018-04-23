@@ -3,6 +3,7 @@ namespace app\admin\controller;
 use app\admin\model\Advertmodel;
 use think\File;
 use think\Request;
+use think\Controller;
 use think\Db;
 use think\Session;
 class Advert  extends Controller

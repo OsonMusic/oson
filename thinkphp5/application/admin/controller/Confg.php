@@ -3,6 +3,7 @@ namespace app\admin\controller;
 use app\admin\model\Cong;
 use think\File;
 use think\Request;
+use think\Controller;
 use think\Db;
 class Confg extends Controller
 {
