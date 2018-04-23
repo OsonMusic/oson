@@ -3,8 +3,15 @@ namespace app\admin\controller;
 use think\Controller;
 use think\Session;
 
-class Index  extends Com
+class Index  extends controller
 {
+    public function __construct()
+    {
+        $user_info=Session::get('user_info');
+        if(empty($user_info)){
+            $this->error("请先登录","Login/index",'','1');
+        }
+    }
     public function index(){
         //return $this->fetch("index");
         $user_name=Session::get('user_info')['user_name'];

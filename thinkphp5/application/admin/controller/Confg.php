@@ -4,7 +4,7 @@ use app\admin\model\Cong;
 use think\File;
 use think\Request;
 use think\Db;
-class Confg extends \think\Controller
+class Confg extends Controller
 {
     protected $model;
 //    function __construct()

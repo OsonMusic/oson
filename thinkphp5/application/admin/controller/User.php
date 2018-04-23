@@ -4,7 +4,7 @@ use  app\admin\model\UserModel;
 use  think\Controller;
 use  think\Session;
 
-class User  extends  \think\Controller{
+class User  extends  Com{
 
     /*
      * 用户id

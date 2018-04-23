@@ -3,7 +3,7 @@ namespace app\admin\controller;
 use app\admin\model\RoleModel;
 use think\Session;
 use think\Db;
-    class Role  extends \think\Controller
+    class Role  extends Com
     {
       /*
       * 用户id

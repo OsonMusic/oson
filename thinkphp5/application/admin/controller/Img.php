@@ -6,7 +6,7 @@ use think\Request;
 use think\Db;
 use think\File;
 
-class Img extends Controller
+class Img extends Com
 {
     public function addImg(){
         return $this->fetch('img');

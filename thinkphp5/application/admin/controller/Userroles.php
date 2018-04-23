@@ -7,7 +7,7 @@ use  think\Controller;
 use think\Db;
 use  think\Session;
 
-class Userroles  extends  \think\Controller{
+class Userroles  extends  Com{
 
     /*
      * 用户id

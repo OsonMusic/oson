@@ -9,7 +9,7 @@ namespace app\admin\controller;
 use app\admin\model\MessagesModel;
 use think\Request;
 use think\Db;
-class Messages extends \think\Controller
+class Messages extends Controller
 {
 
      public $Model;

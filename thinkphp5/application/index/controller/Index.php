@@ -1,6 +1,7 @@
 <?php
 namespace app\index\controller;
 use app\index\model\Messages;
+use app\index\model\WebModel;
 use think\Request;
 use think\Db;
 class Index extends \think\Controller
@@ -8,7 +9,8 @@ class Index extends \think\Controller
 
     public function index()
     {
-        echo 123;
+
+        return view("index");
     }
     public function show(){
         echo 22;
@@ -39,7 +41,7 @@ class Index extends \think\Controller
         }
         $time = date("Y-m-d H:i:s");
         $sql = "INSERT INTO `oson_message` (`msg_user`, `msg_name`, `msg_ip`, `msg_time`)
-               VALUES ('$visit_name', '$visit_message', '$visit_ip', '$time')";
+VALUES ('$visit_name', '$visit_message', '$visit_ip', '$time')";
         $ret = Db::execute($sql);
 
 

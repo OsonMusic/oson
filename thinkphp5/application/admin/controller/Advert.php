@@ -5,7 +5,7 @@ use think\File;
 use think\Request;
 use think\Db;
 use think\Session;
-class Advert  extends \think\Controller
+class Advert  extends Controller
 {
     /*
      * @刘柯

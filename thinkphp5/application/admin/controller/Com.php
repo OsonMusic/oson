@@ -5,9 +5,10 @@ use think\Model;
 use think\Db;
 use think\Session;
 use think\Request;
+
 class Com extends Controller
 {
-    public function __construct()
+    public function _initialize()
     {
         $user_info=Session::get('user_info');
         if(empty($user_info)){
@@ -18,7 +19,9 @@ class Com extends Controller
         $action=$request->action();
         $ac=$controoler.'/'.$action;
         $rbac=Session::get('rbac');
-        if(in_array($ac,$rbac)){
+
+
+        if(!in_array($ac,$rbac)){
             $this->error("你没有权限","index/index",'','1');
         }
 

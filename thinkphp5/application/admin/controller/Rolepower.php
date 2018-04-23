@@ -6,7 +6,7 @@ use app\admin\model\RolePowerModel;
 use  think\Controller;
 use think\Db;
 use  think\Session;
-class Rolepower  extends  \think\Controller{
+class Rolepower  extends  Com{
 
     /*
      * 用户id

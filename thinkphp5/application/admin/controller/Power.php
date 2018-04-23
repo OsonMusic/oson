@@ -4,7 +4,7 @@ use  app\admin\model\PowerModel;
 use  think\Controller;
 use  think\Session;
 use think\Db;
-class Power  extends  \think\Controller{
+class Power  extends  Com{
         public $userId;
 
         public $Model;
