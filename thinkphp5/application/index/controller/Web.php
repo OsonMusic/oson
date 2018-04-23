@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-19 14:22:29
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-21 10:12:16
+ * @Last Modified time: 2018-04-22 20:43:50
  */
 namespace app\index\controller;
 use app\index\model\WebModel;
@@ -45,7 +45,7 @@ class Web extends \think\Controller
                 VALUES ('$msg_user', '$msg_name', '$msg_ip','$msg_time')";
         $ret = Db::execute($sql);
         if ($ret) {
-            $this->success("留言发布成功，去留言板看看吧",url('index/messages'));
+            $this->success("留言发布成功，去留言板看看吧",'index/messages',0);
         }else{
             echo "<script>alert('啊哦~留言失败再给小欧一次机会再留一次言吧');";
         }
