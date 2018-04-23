@@ -40,8 +40,8 @@ class Messages extends \think\Controller
             // $this->assign("last",$last);
             // $this->assign("next",$next);
             // $data  = $this->Model->Select("oson_message");
-             // print_r($arr);
-             // $this->assign("data",$data);
+            // print_r($arr);
+            // $this->assign("data",$data);
             return view("MsgShow",["data"=>$arr]);
     }
              public function up()
