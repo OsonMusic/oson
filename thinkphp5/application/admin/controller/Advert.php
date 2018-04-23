@@ -177,4 +177,20 @@ class Advert  extends \think\Controller
         $this->assign("data",$data);
         return $this->fetch("advertShow");
     }
+    /*
+     *@刘柯
+     * 2018/04/23 10:16
+     *音乐详情
+     */
+    public function details()
+    {
+//        $id      = $_GET['id'];
+        $id = "14";
+        $model   = new Advertmodel();
+        $data    = $model->hotshow("oson_music","1");//歌曲详情
+        $comment = $model->com("oson_comment","music_id",$id);//评论数据
+//        print_r($comment);
+        $this->assign("data",$data);
+        $this->assign("comment",$comment);
+    }
 }

@@ -8,7 +8,7 @@ class Index extends \think\Controller
 
     public function index()
     {
-
+        echo 123;
     }
     public function show(){
         echo 22;

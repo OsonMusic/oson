@@ -7,8 +7,10 @@ class Index  extends Com
 {
     public function index(){
         //return $this->fetch("index");
-
-        return view("Index/index");
+        $user_name=Session::get('user_info')['user_name'];
+        $data=model('index')->selectAll();
+        $digui=model('index')->getSontree($data);
+        return view("Index/index",['user_name'=>$user_name,'data'=>$digui]);
 
     }
     public function head(){
@@ -23,5 +25,14 @@ class Index  extends Com
 
     public function  main(){
         return view("Index/main");
+    }
+    public function outLogin(){
+        Session::delete('user_info');
+        $user_info=Session::get("user_info");
+        if(empty($user_info)){
+            echo 1;
+        }else{
+            echo 2;
+        }
     }
 }
