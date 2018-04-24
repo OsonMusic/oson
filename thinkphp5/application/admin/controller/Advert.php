@@ -6,7 +6,7 @@ use think\Request;
 use think\Controller;
 use think\Db;
 use think\Session;
-class Advert  extends Controller
+class Advert  extends Com
 {
     /*
      * @刘柯

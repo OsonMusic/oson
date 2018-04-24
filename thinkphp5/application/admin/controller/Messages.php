@@ -10,7 +10,7 @@ use app\admin\model\MessagesModel;
 use think\Request;
 use think\Controller;
 use think\Db;
-class Messages extends Controller
+class Messages extends Com
 {
 
      public $Model;

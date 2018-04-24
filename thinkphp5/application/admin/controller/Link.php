@@ -10,7 +10,7 @@ use app\admin\model\LinkModel;
 use think\Controller;
 use think\Request;
 use think\Db;
-class Link extends Controller
+class Link extends Com
 {
 
      public $Model;

@@ -4,7 +4,7 @@ use app\admin\model\CommentModel;
 use think\Controller;
 use think\Db;
 use think\Session;
-class Comment extends Controller{
+class Comment extends Com{
 
     public $userId;
 

@@ -5,7 +5,7 @@ use think\File;
 use think\Request;
 use think\Controller;
 use think\Db;
-class Confg extends Controller
+class Confg extends Com
 {
     protected $model;
 //    function __construct()
