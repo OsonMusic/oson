@@ -1,9 +1,10 @@
 <?php
 namespace app\admin\controller;
 use app\admin\model\LoginModel;
+use think\Controller;
 use think\Session;
 use think\Db;
-    class Login  extends \think\Controller
+    class Login  extends Controller
 {
         //加载此页面！
     public function index(){

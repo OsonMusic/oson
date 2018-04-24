@@ -40,6 +40,11 @@ class Web extends \think\Controller
         // print_r($msg_data);die;
         $msg_ip   = $_SERVER['SERVER_ADDR'];
         $msg_time = date("Y-m-d H:i:s");
+        $count = DB::query("SELECT COUNT(*) as ip_num FROM oson_message WHERE `msg_ip`='$visit_ip'");
+            $ipnum = $count[0]['ip_num'];
+            if($ipnum>=5){
+                exit("<script>alert('啊哦~今日留言条数以上线');</script>");
+            }
         // print_r($user_ip);die;
         $sql = "INSERT INTO `oson_message` (`msg_user`, `msg_name`, `msg_ip`,`msg_time`)
                 VALUES ('$msg_user', '$msg_name', '$msg_ip','$msg_time')";

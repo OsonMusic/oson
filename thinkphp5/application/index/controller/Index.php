@@ -17,6 +17,7 @@ class Index extends \think\Controller
     }
     public function messages(){
         $message = new Messages;
+
         $data = $message->display('1');
         $this->assign("data",$data);
         return $this->fetch('messages');
@@ -40,6 +41,11 @@ class Index extends \think\Controller
             die;
         }
         $time = date("Y-m-d H:i:s");
+        $count = DB::query("SELECT COUNT(*) as ip_num FROM oson_message WHERE `msg_ip`='$visit_ip'");
+            $ipnum = $count[0]['ip_num'];
+            if($ipnum>=5){
+                exit("<script>alert('啊哦~今日留言条数以上线');</script>");
+            }
         $sql = "INSERT INTO `oson_message` (`msg_user`, `msg_name`, `msg_ip`, `msg_time`)
 VALUES ('$visit_name', '$visit_message', '$visit_ip', '$time')";
         $ret = Db::execute($sql);
