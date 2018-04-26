@@ -34,6 +34,11 @@ class Index extends \think\Controller
             $visit_name     = strip_tags($visit_name);
             //获取留言用户IP
             $visit_ip       = $_SERVER['SERVER_ADDR'];
+             $count = DB::query("SELECT COUNT(*) as ip_num FROM oson_message WHERE `msg_ip`='$visit_ip'");
+            $ipnum = $count[0]['ip_num'];
+            if($ipnum>=5){
+                exit("<script>alert('啊哦~今日留言条数以上线');</script>");
+            }
         }else{
 
             //如果不是AJAX提交返回错误
@@ -41,11 +46,7 @@ class Index extends \think\Controller
             die;
         }
         $time = date("Y-m-d H:i:s");
-        $count = DB::query("SELECT COUNT(*) as ip_num FROM oson_message WHERE `msg_ip`='$visit_ip'");
-            $ipnum = $count[0]['ip_num'];
-            if($ipnum>=5){
-                exit("<script>alert('啊哦~今日留言条数以上线');</script>");
-            }
+       
         $sql = "INSERT INTO `oson_message` (`msg_user`, `msg_name`, `msg_ip`, `msg_time`)
 VALUES ('$visit_name', '$visit_message', '$visit_ip', '$time')";
         $ret = Db::execute($sql);

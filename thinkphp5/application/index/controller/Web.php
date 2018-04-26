@@ -13,7 +13,7 @@ class Web extends \think\Controller
 {
      public $Model;
      public function __construct(){
-     $this->Model   = new WebModel();
+        $this->Model   = new WebModel();
      }
      public function index()
      {
@@ -40,7 +40,7 @@ class Web extends \think\Controller
         // print_r($msg_data);die;
         $msg_ip   = $_SERVER['SERVER_ADDR'];
         $msg_time = date("Y-m-d H:i:s");
-        $count = DB::query("SELECT COUNT(*) as ip_num FROM oson_message WHERE `msg_ip`='$visit_ip'");
+        $count = DB::query("SELECT COUNT(*) as ip_num FROM oson_message WHERE `msg_ip`='$msg_ip'");
             $ipnum = $count[0]['ip_num'];
             if($ipnum>=5){
                 exit("<script>alert('啊哦~今日留言条数以上线');</script>");
