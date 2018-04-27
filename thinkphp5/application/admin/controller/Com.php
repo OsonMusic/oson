@@ -5,7 +5,6 @@ use think\Model;
 use think\Db;
 use think\Session;
 use think\Request;
-
 class Com extends Controller
 {
     public function _initialize()
